@@ -1,0 +1,12 @@
+# Nuxt
+.nuxt/
+dist/
+.nuxt/
+*.log
+
+# Node modules
+node_modules/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
