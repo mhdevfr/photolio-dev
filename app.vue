@@ -1,17 +1,16 @@
 <template> 
   <div>
       <NuxtLayout>
-          <NuxtPage class="bg-slate-950" />
+          <NuxtPage/>
       </NuxtLayout>
       <UNotifications />
 
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 </script>
-
 <style>
 .page-enter-active,
 .page-leave-active {

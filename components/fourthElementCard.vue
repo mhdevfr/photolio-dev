@@ -2,7 +2,7 @@
     <div id="back">
       <div
         id="cart"
-        class="h-52 w-96 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 border border-gray-100 flex items-center justify-center"
+        class="h-52 w-96 bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 shadow-[0px_0px_10px_1px_#f7fafc] border-gray-100 flex items-center justify-center"
       >
       <img
       src="https://picsum.photos/300/175" class="rounded-md">

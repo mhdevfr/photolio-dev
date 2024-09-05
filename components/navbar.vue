@@ -17,7 +17,7 @@
       <ul class="flex justify-end">
         <li>
           <nuxt-link
-            to="/contact"
+            to="/"
             class="px-10 py-2 underline-offset-4 underline decoration-sky-500"
             >Home</nuxt-link
           >

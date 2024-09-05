@@ -3,7 +3,7 @@
         <div class="flex justify-center items-center pb-1">
             <div class=" w-full bg-  h-1/2 flex justify-center items-center rounded-2xl">
                 <form class="w-96 h-96 text-center     flex flex-col text-gray-100 items-center rounded-md">
-                    <h1 class="text-4xl brico-800 text-center mt-4">👋 Welcome 
+                    <h1 class="text-4xl brico-800 text-center mt-4">👋   Welcome 
                     <span class="">Back</span>
                     </h1>
                     <button class="px-16 py-2 mt-6 mb-12 rounded-md items-center justify-between bg-slate-800 flex">
@@ -20,4 +20,6 @@
     </div>
 </template>
 
-<script lang="ts"></script>
+<script lang="ts">
+
+</script>
