@@ -6,7 +6,6 @@
   
   <script>
   import Typewriter from 'typewriter-effect/dist/core';
-  
   export default {
     mounted() {
       const typewriter = new Typewriter(this.$refs.typewriter, {
