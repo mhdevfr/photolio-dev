@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     'nuxt-chatgpt',
     '@formkit/auto-animate/nuxt',
+    'nuxt-marquee',
   ],
   supabase: {
     redirect: false
