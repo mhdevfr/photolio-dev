@@ -1,7 +1,8 @@
 <template>
   <div class="h-screen w-full flex justify-center items-center flex-col">
     <navbar />
-    <loginForm />
+    <loginForm v-if="!register"/>
+    <registerForm v-else/>
     <elementCard
       class="parallax absolute left-24 z-[-1]"
       v-motion-slide-top
@@ -22,6 +23,9 @@
 </template>
 
 <script setup lang="ts">
+const register = ref(false);
+
+
 const getRandomInRange = (min, max) => Math.random() * (max - min) + min;
 const elements = [];
 const handleMouseMove = (event) => {
