@@ -1,5 +1,6 @@
 <template>
   <div v-motion-pop-visible-once class="flex flex-col items-center">
+    <Badge></Badge>
     <h1
       class="text-slate-900 w-3/5 dark:text-gray-100 font-raleway text-center lg:text-7xl text-4xl font-bold mt-11 mb-6 brico-800"
     >

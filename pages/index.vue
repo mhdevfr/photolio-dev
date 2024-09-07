@@ -5,16 +5,15 @@
             <heroTexte></heroTexte>
         </div>
         <div class="flex flex-col justify-center  items-center w-5/6">
-            <bentoTop class=""></bentoTop>  
-            <div class="flex w-5/6 items-center justify-center">
-                <bentoLeft class="w-2/6"></bentoLeft>
-                <bentoRight class="w-4/6"></bentoRight>
-                </div>
+            <Bento></Bento>
         </div>
     </div>
 </template>
 
-<script lang="ts"></script>
+<script lang="ts">
+import Bento from '~/components/bento.vue';
+
+</script>
 
 <style lang="css">
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap'); 

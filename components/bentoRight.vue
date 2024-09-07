@@ -1,10 +1,11 @@
 <template>
-    <div class="flex w-3/6 h-screen flex-col">
-        <div class="bg-slate-950 w-full  h-1/2 flex justify-center items-center text-center rounded-2xl p-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam earum quis perspiciatis quidem cupiditate, culpa, nostrum deserunt a, consequatur ex sequi? Tenetur aliquid perspiciatis mollitia facere nesciunt unde saepe dolorum!
-        </div>
-        <div class="bg-slate-950 w-full  h-1/2 flex justify-center items-center text-center rounded-2xl pb-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam earum quis perspiciatis quidem cupiditate, culpa, nostrum deserunt a, consequatur ex sequi? Tenetur aliquid perspiciatis mollitia facere nesciunt unde saepe dolorum!
-        </div>
-    </div>
-    </template>
+    <h1
+      class="text-[200px] font-semibold mt-6 text-center bg-gradient-to-r from-blue-400 via-violet-400 to-orange-200 text-transparent bg-clip-text bg-300% animate-gradient"
+    >
+      <CountUp :end="120" :duration="2" />
+    </h1>
+  </template>
+  
+  <script setup>
+  import { CountUp } from 'vue3-countup'
+  </script>
