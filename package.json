@@ -22,9 +22,11 @@
     "gsap": "^3.12.5",
     "nuxt": "^3.10.3",
     "nuxt-marquee": "^1.0.4",
+    "typewriter-effect": "^2.21.0",
     "ufo": "^1.5.3",
     "v-calendar": "^3.1.2",
     "vue": "^3.4.19",
+    "vue-animated-counter": "^0.3.0",
     "vue-router": "^4.3.0",
     "vue-writer": "^1.2.0"
   },

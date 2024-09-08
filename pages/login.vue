@@ -24,8 +24,6 @@
 
 <script setup lang="ts">
 const register = ref(false);
-
-
 const getRandomInRange = (min, max) => Math.random() * (max - min) + min;
 const elements = [];
 const handleMouseMove = (event) => {

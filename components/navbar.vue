@@ -30,7 +30,7 @@
             >Login
             </nuxt-link>
             <button
-              class="px-4 mx-4 py-2 bg-red-200 text-gray-100 rounded-md"
+              class="px-4 mx-4 py-2 bg-red-400 text-gray-100 rounded-md"
               v-if="user"
               @click="signOut"
               >Logout

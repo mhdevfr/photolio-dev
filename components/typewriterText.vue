@@ -1,21 +1,21 @@
 <template>
   <div>
-    <div ref="typewriter" class="text-[64px] font-semibold ml-6 brico-800"></div> 
+    <div ref="typewriter" class="text-[64px] font-semibold ml-6 brico-800"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Typewriter from 'typewriter-effect/dist/core'; // Ici tu importes la librairie typewriter
+import Typewriter from 'typewriter-effect/dist/core';
 
-const typewriter = ref(null); // important de toujours definir de quoi on parle ici typewriter est un ref qui est null pour le moment
+const typewriter = ref(null);
 
-onMounted(() => { // En claire ici tu dis que quand le setup est lancer il faut lancer cette fonction
+onMounted(() => {
   const typewriterInstance = new Typewriter(typewriter.value, {
     loop: true,
     delay: 75,
   });
 
-  typewriterInstance // Ici c'est la déclaration du script à faire UNIQUEMENT grâce au typewriterInstance la librairie typewriter
+  typewriterInstance
     .typeString('Create your own portfolio...')
     .pauseFor(1500)
     .deleteAll()
