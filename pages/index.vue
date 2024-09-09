@@ -7,11 +7,22 @@
         <div class="flex flex-col justify-center  items-center w-5/6">
             <Bento></Bento>
         </div>
+        <div v-motion-pop-visible>
+            <PricingCards></PricingCards>
+        </div>
+        <div>
+            <BentoContact></BentoContact>
+        </div>
+        <div>
+            
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import Bento from '~/components/bento.vue';
+import BentoContact from '~/components/bentoContact.vue';
+import PricingCards from '~/components/pricingCards.vue';
 
 </script>
 
