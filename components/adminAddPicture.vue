@@ -19,7 +19,6 @@ const selectedIndex = ref(0);
 </script>
 
 <template>
-  <!-- Tabs -->
   <UTabs v-model:selected="selectedIndex" :items="items" class="w-full">
     <template #default="{ item, index, selected }">
       <span

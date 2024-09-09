@@ -29,6 +29,12 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const user = useSupabaseUser();
+const client = useSupabaseClient();
+
+
+
+</script>
 
 <style lang="css" scoped></style>
