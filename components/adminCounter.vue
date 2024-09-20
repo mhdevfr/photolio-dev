@@ -1,6 +1,6 @@
 //components/CounterComponent.vue
 <template>
-    <div class="flex items-center justify-center p-4 bg-blue-400 rounded-md">
+    <div class="flex items-center justify-center p-4 bg-blue-400 h-16">
         <ClientOnly>
             <h1>
                 More than 
