@@ -79,7 +79,7 @@ async function signIn() {
     }
 
     if (profile && profile[0]) {
-      navigateTo(`/dashboard/${profile[0].pseudo}`); 
+      navigateTo(`/dashboard/${profile[0].id}`); 
     } else {
       console.error("Profile not found.");
     }

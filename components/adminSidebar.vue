@@ -22,13 +22,6 @@
           class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-700 hover:text-white dark:hover:bg-indigo-500"
           href="#"
         >
-          <Icon name="material-symbols:search" />
-          <span class="ml-2 text-sm font-medium brico-800">Search</span>
-        </a>
-        <a
-          class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-700 hover:text-white dark:hover:bg-indigo-500"
-          href="#"
-        >
           <Icon name="et:pictures" />
           <span class="ml-2 text-sm font-medium brico-800">Pictures</span>
         </a>

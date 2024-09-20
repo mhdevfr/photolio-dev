@@ -72,6 +72,7 @@ const signUp = async () => {
     toast.add({
       title: "Success, check your inbox mail to confirm your account",
     });
+    navigateTo("/login");
   }
 };
 
