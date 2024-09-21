@@ -1,8 +1,8 @@
 <template>
-  <div class="w-5/6 h-full flex flex-col justify-center">
-    <div class="flex items-center justify-center p-0">
+  <div class="w-5/6 h-screen flex flex-col justify-center">
+    <div class="flex items-center justify-center">
       <div
-        class="h-full w-full bg-gray-100 flex justify-between dark:bg-slate-800 dark:shadow-[0px_0px_10px_0px_#f7fafc] shadow-[0px_0px_10px_0px_#1a202c] mr-6 mb-6 rounded-xl p-10"
+        class="h-5/6 w-full bg-gray-100 flex justify-between dark:bg-slate-800 dark:shadow-[0px_0px_10px_0px_#f7fafc] shadow-[0px_0px_10px_0px_#1a202c] mr-8 rounded-xl p-10"
       >
         <div
           class="text-slate-900 w-1/2 text-start flex dark:text-gray-50 flex-col p-4"
@@ -23,7 +23,7 @@
         </div>
         <div
           v-else
-          class="text-slate-900 w-1/2 h-1/4 text-start flex dark:text-gray-50 flex-col p-10"
+          class="text-slate-900 w-1/2 h-5/6 text-start flex dark:text-gray-50 flex-col p-10"
         >
           <h1 class="text-3xl brico-800 p-4">👋 Hey!</h1>
           <div class="w-full h-full">
@@ -63,11 +63,11 @@
       </div>
 
       <div
-        class="w-3/4 flex flex-col h-1/4 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] mb-6 rounded-xl"
+        class="w-3/4 flex flex-col h-5/6 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] rounded-xl"
       >
-        <div class="h-full flex flex-col justify-around">
+        <div class="h-full flex flex-col justify-around p-10">
           <h1
-            class="text-3xl h-1/5 flex justify-start items-center rounded-xl dark:text-gray-50 p-4"
+            class="text-3xl flex justify-start items-center rounded-xl dark:text-gray-50 "
           >
             <span class="brico-800 underline-offset-8 underline"
               >About you</span
@@ -75,7 +75,7 @@
           </h1>
 
           <div
-            class="m-4 text-xl h-3/5 dark:text-gray-50 text-slate-900 brico-200"
+            class="text-xl h-3/5 dark:text-gray-50 text-slate-900 brico-200 my-8"
           >
             <p
               class="dark:text-gray-50 opacity-75 text-slate-900 brico-200 mb-2 text-sm"
@@ -96,7 +96,7 @@
             </p>
           </div>
 
-          <div class="ml-4 h-1/5" v-if="users[0]?.biography">
+          <div class="h-1/5" v-if="users[0]?.biography">
             <button
               v-if="!updateBio"
               class="flex items-center brico-800 dark:hover:bg-green-500 hover:bg-green-500 justify-center px-4 py-3 dark:bg-slate-900 dark:text-gray-50 text-slate-900 bg-gray-200 rounded-lg text-pretty text-sm"
@@ -115,7 +115,7 @@
           </div>
           <div
             v-if="!users[0]?.biography"
-            class="flex items-start flex-col h-full justify-start p-4"
+            class="flex items-start flex-col h-5/6 justify-start p-4"
           >
             <UTextarea
               placeholder="Write your biography here"
@@ -160,9 +160,8 @@
       </div>
     </div>
     <div
-      @mouseover="showPhotolio"
       v-if="users[0]?.current_plan"
-      class="w-full h-full hover:opacity-50 bg-gray-100 z-10 relative rounded-xl flex justify-center items-center dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden"
+      class="w-full h-full mb-12 hover:opacity-50 bg-gray-100 z-50 relative rounded-xl flex justify-center items-center dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden"
     >
       <div
         class="absolute w-5/6 h-5/6 bottom-0 rounded-t-lg flex flex-col bg-gray-50 dark:bg-slate-900"
