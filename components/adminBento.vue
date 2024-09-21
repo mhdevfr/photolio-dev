@@ -26,7 +26,7 @@
           class="text-slate-900 w-1/2 text-start flex dark:text-gray-50 flex-col"
         >
           <h1 class="text-3xl brico-800 mb-2">👋 Hey !</h1>
-          <div class="w-full h-full">
+          <div class="w-full h-full flex flex-col justify-center">
             <input
               type="text"
               class="py-1 px-2 rounded-lg bg-transparent outline-none"
@@ -115,13 +115,13 @@
           </div>
           <div
             v-if="!users[0]?.biography"
-            class="flex items-start flex-col h-5/6 justify-start"
+            class="flex items-start h-full flex-col h-5/6 justify-start"
           >
             <UTextarea
               placeholder="Write your biography here"
               v-model="newBiography"
               maxlength="140"
-              class="w-full bg-transparent opacity-75 dark:text-gray-50 text-slate-900 brico-200 my-2"
+              class="w-full h-full bg-transparent opacity-75 dark:text-gray-50 text-slate-900 brico-200 my-2"
             />
             <button
               class="flex items-center brico-800 dark:hover:bg-green-500 px-2 py-3 hover:bg-green-500 justify-center dark:bg-slate-900 dark:text-gray-50 text-slate-900 bg-gray-200 rounded-lg text-pretty text-sm"
