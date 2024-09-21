@@ -173,22 +173,22 @@
           <span class="w-5 h-5 rounded-full mx-2 bg-yellow-400"></span>
           <span class="w-5 h-5 rounded-full bg-green-400"></span>
         </div>
-        <div class="flex justify-start w-full items-center">
-          <div class="flex m-10">
-            <div class="w-1/3">
+        <div class="flex w-full items-center">
+          <div class="flex w-full m-10">
+            <div class="w-1/4 h-full flex justify-center">
               <img
                 src="../assets/images/lugubre.png"
-                class="h-full rounded-full w-40"
+                class="h-full rounded-full w-3/4"
               />
             </div>
-            <div class="flex flex-col w-full justify-start">
+            <div class="flex flex-col w-3/5 justify-start">
               <span class="text-5xl brico-800"
                 >👋 {{ users[0]?.pseudo }}
                 <span class="text-2xl brico-800">.{{ users[0]?.country }}</span>
               </span>
-              <p class="mt-6 w-3/4 brico-200">{{ users[0]?.biography }}</p>
+              <p class="mt-6 w-4/5 brico-200">{{ users[0]?.biography }}</p>
             </div>
-            <div class="flex flex-col h-full">
+            <div class="flex flex-col w-1/12 h-full">
               <Icon name="mdi:email" size="32"></Icon>
               <Icon name="mdi:pinterest" size="32" class="my-2"></Icon>
               <Icon name="mdi:linkedin" size="32"></Icon>
