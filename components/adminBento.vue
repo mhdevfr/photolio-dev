@@ -57,8 +57,8 @@
           </div>
         </div>
 
-        <div class="h-full rounded-xl w-1/2">
-          <img src="../assets/images/lugubre.png" class="h-full w-full p-4" />
+        <div class="h-full rounded-xl flex justify-center w-1/2">
+          <img src="../assets/images/lugubre.png" class="h-full w-3/4 p-4" />
         </div>
       </div>
 
