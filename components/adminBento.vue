@@ -1,40 +1,367 @@
 <template>
   <div class="w-5/6 h-full flex flex-col justify-center">
     <div class="flex items-center justify-center p-0">
-      <div class="h-80 w-full bg-gray-50 mb-6 mr-6 rounded-xl">
-        <div class="text-slate-900 flex items-center justify-center flex-col">
-          <h1 class="text-3xl brico-800 p-4">👋 Hey MHDev !</h1>
-          <div>
-            <adminCounter/>
+      <div
+        class="h-80 w-full bg-gray-100 flex justify-between dark:bg-slate-800 dark:shadow-[0px_0px_10px_0px_#f7fafc] shadow-[0px_0px_10px_0px_#1a202c] mb-6 mr-6 rounded-xl"
+      >
+        <div
+          class="text-slate-900 w-1/2 text-start flex dark:text-gray-50 flex-col p-4"
+          v-if="users[0]?.pseudo"
+        >
+          <h1 class="text-3xl brico-800 underline-offset-8 underline">
+            👋 Hey {{ users[0]?.pseudo }} !
+          </h1>
+          <span class="text-2xl brico-200 mt-8"
+            >Located in : {{ users[0]?.country }}</span
+          >
+          <span class="text-2xl brico-200 mt-1"
+            >Work : {{ users[0]?.work }}</span
+          >
+          <span class="text-2xl brico-200 mt-1"
+            >Current plan : {{ users[0]?.current_plan }}</span
+          >
+        </div>
+        <div
+          v-else
+          class="text-slate-900 w-1/2 text-start flex dark:text-gray-50 flex-col p-4"
+        >
+          <h1 class="text-3xl brico-800 p-4">👋 Hey!</h1>
+          <div class="w-full h-full">
+            <input
+              type="text"
+              class="py-2 px-2 rounded-lg outline-none"
+              placeholder="Enter your pseudo"
+              v-model="newPseudo"
+            />
+            <input
+              type="text"
+              class="py-2 px-2 rounded-lg outline-none mt-2"
+              placeholder="Enter your work"
+              v-model="newWork"
+            />
+            <select
+              v-model="newCountry"
+              :options="countries"
+              class="py-2 px-2 rounded-lg outline-none mt-2"
+            >
+              <option v-for="country in countries" :value="country">
+                {{ country }}
+              </option>
+            </select>
+            <Button
+              @click="addDetails"
+              class="text-sm text-center mt-2 px-3 brico-800 py-3 rounded-lg dark:bg-slate-900 dark:hover:bg-gray-50 hover:dark:text-slate-950 bg-gray-200"
+            >
+              Add your informations
+            </Button>
+          </div>
+        </div>
+
+        <div class="h-full rounded-xl w-1/2">
+          <img src="../assets/images/lugubre.png" class="h-full w-full p-4" />
+        </div>
+      </div>
+
+      <div
+        class="w-3/4 flex flex-col h-80 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] mb-6 rounded-xl"
+      >
+        <div class="h-full flex flex-col justify-around">
+          <h1
+            class="text-3xl h-1/5 flex justify-start items-center rounded-xl dark:text-gray-50 p-4"
+          >
+            <span class="brico-800 underline-offset-8 underline"
+              >About you</span
+            >
+          </h1>
+
+          <div
+            class="m-4 text-xl h-3/5 dark:text-gray-50 text-slate-900 brico-200"
+          >
+            <p
+              class="dark:text-gray-50 opacity-75 text-slate-900 brico-200 mb-2 text-sm"
+              v-if="updateBio"
+            >
+              Max Length 150 charts
+            </p>
+            <UTextarea
+              v-if="updateBio"
+              placeholder="Update your biography here"
+              v-model="biographyContent"
+              maxlength="140"
+              :disabled="!updateBio"
+              class="w-full h-full bg-transparent opacity-75 dark:text-gray-50 text-slate-900 brico-200"
+            />
+            <p v-if="!updateBio">
+              {{ users[0]?.biography }}
+            </p>
+          </div>
+
+          <div class="ml-4 h-1/5" v-if="users[0]?.biography">
+            <button
+              v-if="!updateBio"
+              class="flex items-center brico-800 dark:hover:bg-green-500 hover:bg-green-500 justify-center px-4 py-3 dark:bg-slate-900 dark:text-gray-50 text-slate-900 bg-gray-200 rounded-lg text-pretty text-sm"
+              @click="updateBiography"
+            >
+              Change your biography
+            </button>
+            <UButton
+              v-if="updateBio"
+              class="flex items-center dark:hover:bg-green-500 hover:bg-green-500 justify-center px-4 py-3 dark:bg-slate-900 dark:text-gray-50 text-slate-900 bg-gray-200 rounded-xl text-pretty text-sm"
+              @click="update"
+              :loading="loading"
+            >
+              Apply your changes
+            </UButton>
+          </div>
+          <div
+            v-if="!users[0]?.biography"
+            class="flex items-start flex-col h-full justify-start p-4"
+          >
+            <UTextarea
+              placeholder="Write your biography here"
+              v-model="newBiography"
+              maxlength="140"
+              class="w-full bg-transparent opacity-75 dark:text-gray-50 text-slate-900 brico-200"
+            />
+            <button
+              class="flex items-center brico-800 dark:hover:bg-green-500 px-2 py-3 hover:bg-green-500 justify-center dark:bg-slate-900 dark:text-gray-50 text-slate-900 bg-gray-200 rounded-lg text-pretty text-sm"
+              @click="addBiography"
+            >
+              Add your biography
+            </button>
           </div>
         </div>
       </div>
-      <div class="w-3/4 h-80 bg-gray-50 mb-6 rounded-xl">
-        <div class="text-slate-900">
-          <h1 class="text-3xl flex justify-start items-center p-4">
-            <button class="flex items-center justify-center">
-              <Icon name="solar:pen-line-duotone" class="mr-4" />
-            </button>
-            <span class="brico-800">Your biography : </span>
-          </h1>
+    </div>
+    <div
+      v-if="!users[0]?.current_plan"
+      class="w-full h-80 bg-gray-100 z-10 relative rounded-xl dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden"
+    >
+      <div class="flex">
+        <div
+          class="text-3xl w-1/2 brico-800 text-slate-900 dark:text-gray-50 flex p-4 flex-col m-4"
+        >
+          <span class="text-4xl">Explore our plans</span>
+          <span class="text-3xl">Make your choices</span>
+          <span class="text-2xl">Take the advantages</span>
+          <Nuxt-Link
+            to="/"
+            class="text-sm text-center mt-2 w-1/3 py-3 rounded-lg dark:bg-slate-900 dark:hover:bg-gray-50 hover:dark:text-slate-950 bg-gray-200"
+          >
+            Discover our plans
+          </Nuxt-Link>
+        </div>
+        <div class="w-1/2 h-full relative">
+          <img
+            src="/assets/images/kaitoExample.png"
+            class="rotate-12 w-full -z-10 absolute -top-10 right-0"
+          />
         </div>
       </div>
     </div>
-    <div class="w-full h-80 bg-gray-50 rounded-xl">
-      <div class="p-4">
-        <h1 class="text-3xl brico-800 text-slate-900 m-4">Add a picture</h1>
-        <AdminAddPicture />
+    <div
+      @mouseover="showPhotolio"
+      v-if="users[0]?.current_plan"
+      class="w-full h-80 hover:opacity-50 bg-gray-100 z-10 relative rounded-xl flex justify-center items-center dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden"
+    >
+      <div
+        class="absolute w-5/6 h-5/6 bottom-0 rounded-t-lg flex flex-col bg-gray-50 dark:bg-slate-900"
+      >
+        <div
+          class="h-9 w-full bg-gray-200 dark:bg-slate-700 rounded-t-lg flex items-center justify-start p-4"
+        >
+          <span class="w-5 h-5 rounded-full bg-red-400"></span>
+          <span class="w-5 h-5 rounded-full mx-2 bg-yellow-400"></span>
+          <span class="w-5 h-5 rounded-full bg-green-400"></span>
+        </div>
+        <div class="flex justify-start w-full items-center">
+          <div class="flex m-10">
+            <div class="w-1/3">
+              <img
+                src="../assets/images/lugubre.png"
+                class="h-40 rounded-full w-40"
+              />
+            </div>
+            <div class="flex flex-col w-full justify-start">
+              <span class="text-5xl brico-800"
+                >👋 {{ users[0]?.pseudo }}
+                <span class="text-2xl brico-800">.{{ users[0]?.country }}</span>
+              </span>
+              <p class="mt-6 w-3/4 brico-200">{{ users[0]?.biography }}</p>
+            </div>
+            <div class="flex flex-col h-full">
+              <Icon name="mdi:email" size="32"></Icon>
+              <Icon name="mdi:pinterest" size="32" class="my-2"></Icon>
+              <Icon name="mdi:linkedin" size="32"></Icon>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
 <script setup lang="ts">
-const user = useSupabaseUser();
+const toast = useToast();
 const client = useSupabaseClient();
+const user = useSupabaseUser();
+const users = ref<User[]>([]);
+const updateBio = ref<boolean>(false);
+const biographyContent = ref<string>("");
+const loading = ref<boolean>(false);
+const btnShowPhotolio = ref<boolean>(false);
+const countries = ref<countries[]>([]);
+const country = ref(countries.value[0] || null);
+const newPseudo = ref<string>("");
+const newWork = ref<string>("");
+const newCountry = ref<string>("");
+const newBiography = ref<string>("");
 
+interface countries {
+  continent: string;
+  country_name: string;
+  iso_code: string;
+}
 
+interface User {
+  id: string;
+  pseudo: string;
+  profil_picture: string;
+  biography: string;
+  country: string;
+  work: string;
+  current_plan: string;
+}
 
+// Fonction pour ajouter les détails
+async function addDetails(pseudo: string, work: string, country: string) {
+  if (!user.value || !user.value.id) {
+    toast.add({
+      title: "Error",
+      description: "User ID not found.",
+    });
+    return;
+  }
+
+  const { data, error } = await client.from("users").insert({
+    id: user.value.id,
+    pseudo: newPseudo.value,
+    work: newWork.value,
+    country: newCountry.value,
+  });
+
+  if (error) {
+    toast.add({
+      title: "Error",
+      description: error.message,
+    });
+  } else {
+    toast.add({
+      title: "Informations added",
+    });
+    await fetchData();
+  }
+}
+
+async function addBiography() {
+  if (!user.value || !user.value.id) {
+    toast.add({
+      title: "Error",
+      description: "User ID not found.",
+    });
+    return;
+  }
+
+  const { data, error } = await client.from("users").update({
+    biography: newBiography.value,
+  })
+  .eq("id", user.value.id); 
+
+  if (error) {
+    toast.add({
+      title: "Error",
+      description: error.message,
+    });
+  } else {
+    toast.add({
+      title: "Biography added",
+    });
+    await fetchData();
+  }
+}
+
+async function getCountries() {
+  const { data, error } = await client.from("countries").select("country_name");
+  if (data) {
+    countries.value = data.map((country: any) => country.country_name);
+    country.value = countries.value[0];
+    console.log("Countries loaded:", countries.value);
+  } else {
+    console.error("Error loading countries:", error);
+  }
+}
+
+function showPhotolio() {
+  btnShowPhotolio.value = !btnShowPhotolio.value;
+}
+
+function updateBiography() {
+  updateBio.value = !updateBio.value;
+}
+
+async function update() {
+  if (!user.value) {
+    toast.add({
+      title: "Error",
+      description: "User not found",
+    });
+    return;
+  }
+
+  loading.value = true;
+
+  try {
+    const { data, error } = await client
+      .from("users")
+      .update({ biography: biographyContent.value })
+      .eq("id", user.value.id);
+
+    if (error) {
+      throw error;
+    }
+
+    toast.add({
+      title: "Biography updated",
+    });
+
+    await fetchData();
+  } catch (error) {
+    toast.add({
+      title: "Error",
+      description: error.message,
+    });
+  } finally {
+    loading.value = false;
+    refreshNuxtData(profile.value);
+  }
+}
+
+async function fetchData() {
+  const { data, error } = await client
+    .from("users")
+    .select(
+      "id, pseudo, profil_picture, biography, country, work, current_plan"
+    )
+    .eq("id", user.value?.id);
+
+  if (data) {
+    users.value = data as User[];
+    biographyContent.value = users.value[0].biography;
+  } else {
+    console.error(error);
+  }
+}
+
+fetchData();
+getCountries();
 </script>
-
 <style lang="css" scoped></style>

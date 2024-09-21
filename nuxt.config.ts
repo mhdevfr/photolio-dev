@@ -5,11 +5,9 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: true },
-
   devServer: {
     port: 24678, // Spécifie un port personnalisé si nécessaire
   },
-
   modules: [
     '@nuxt/ui',
     'nuxt-icon',

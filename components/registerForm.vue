@@ -19,6 +19,7 @@
             type="email"
             class="brico-200 h-12 py-2 w-3/4 p-2 mb-4 rounded-md text-start outline-none"
             placeholder="david.joe@gmail.com"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
           <input
             v-model="password"
@@ -71,6 +72,7 @@ const signUp = async () => {
     toast.add({
       title: "Success, check your inbox mail to confirm your account",
     });
+    navigateTo("/login");
   }
 };
 

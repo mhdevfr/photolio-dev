@@ -19,11 +19,11 @@ const selectedIndex = ref(0);
 </script>
 
 <template>
-  <UTabs v-model:selected="selectedIndex" :items="items" class="w-full">
-    <template #default="{ item, index, selected }">
+  <UTabs v-model:selected="selectedIndex" :items="items" class="w-full bg-gray-100 dark:bg-indigo-700">
+    <template #default="{ item, index, selected }" class="flex items-center justify-center">
       <span
         class="truncate"
-        :class="[selected && 'text-primary-500 dark:text-primary-400']"
+        :class="[selected && 'text-primary-500 dark:text-gray-50']"
         >{{ index + 1 }}. {{ item.label }}</span
       >
     </template>

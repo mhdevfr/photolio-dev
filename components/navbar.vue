@@ -14,6 +14,13 @@
           <nuxt-link to="/plans" class="px-10 py-2">Plans</nuxt-link>
           <nuxt-link to="/contact" class="px-10 py-2">Contact</nuxt-link>
           <nuxt-link
+            v-if="user"
+            :to="`/dashboard/${user.id}`"
+            class="px-10 py-2"
+          >
+            Dashboard
+          </nuxt-link>
+          <nuxt-link
             to="/login"
             class="px-4 mx-4 py-2 bg-gray-100 text-black rounded-md"
             v-if="!user"
