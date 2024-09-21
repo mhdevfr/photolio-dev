@@ -14,7 +14,10 @@
             <BentoContact></BentoContact>
         </div>
         <div>
-            
+            <footerSection></footerSection>
+        </div>
+        <div>
+          <blurFooter></blurFooter>
         </div>
     </div>
 </template>

@@ -1,17 +1,7 @@
 <template>
   <div class="absolute top-0 w-full h-20 flex items-center justify-center">
     <div class="w-1/6 m-8 brico-800">
-      <nuxt-link to="/">
-        <h1 class="text-3xl flex items-center">
-          Photofoli
-          <Icon
-            name="material-symbols:camera"
-            class="animate-spin-slow"
-            size="24"
-            color="yellow"
-          />
-        </h1>
-      </nuxt-link>
+      <LogoPhotolio></LogoPhotolio>
     </div>
     <div class="w-5/6 justify-center items-center m-8 brico-200">
       <ul class="flex justify-end">
