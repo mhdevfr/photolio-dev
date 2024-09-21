@@ -22,27 +22,27 @@
           >
         </div>
         <div
-          v-else
-          class="text-slate-900 w-1/2 h-5/6 text-start flex dark:text-gray-50 flex-col p-10"
+          v-if="!users[0]?.pseudo"
+          class="text-slate-900 w-1/2 text-start flex dark:text-gray-50 flex-col"
         >
-          <h1 class="text-3xl brico-800 p-4">👋 Hey!</h1>
+          <h1 class="text-3xl brico-800 mb-2">👋 Hey !</h1>
           <div class="w-full h-full">
             <input
               type="text"
-              class="py-2 px-2 rounded-lg outline-none"
+              class="py-1 px-2 rounded-lg bg-transparent outline-none"
               placeholder="Enter your pseudo"
               v-model="newPseudo"
             />
             <input
               type="text"
-              class="py-2 px-2 rounded-lg outline-none mt-2"
+              class="py-1 px-2 rounded-lg bg-transparent outline-none mt-2"
               placeholder="Enter your work"
               v-model="newWork"
             />
             <select
               v-model="newCountry"
               :options="countries"
-              class="py-2 px-2 rounded-lg outline-none mt-2"
+              class="py-1 px-2 rounded-lg outline-none mt-2"
             >
               <option v-for="country in countries" :value="country">
                 {{ country }}
@@ -50,7 +50,7 @@
             </select>
             <Button
               @click="addDetails"
-              class="text-sm text-center mt-2 px-3 brico-800 py-3 rounded-lg dark:bg-slate-900 dark:hover:bg-gray-50 hover:dark:text-slate-950 bg-gray-200"
+              class="text-sm text-center mt-2 px-3 brico-800 py-3  rounded-lg dark:bg-slate-900 dark:hover:bg-gray-50 hover:dark:text-slate-950 bg-gray-200"
             >
               Add your informations
             </Button>
@@ -58,7 +58,7 @@
         </div>
 
         <div class="h-full rounded-xl flex justify-center w-1/2">
-          <img src="../assets/images/lugubre.png" class="h-full w-3/4 p-4" />
+          <img src="../assets/images/lugubre.png" class="h-full w-auto p-4" />
         </div>
       </div>
 
@@ -69,13 +69,13 @@
           <h1
             class="text-3xl flex justify-start items-center rounded-xl dark:text-gray-50 "
           >
-            <span class="brico-800 underline-offset-8 underline"
+            <span class="brico-800 underline-offset-8 underline mb-2"
               >About you</span
             >
           </h1>
 
           <div
-            class="text-xl h-3/5 dark:text-gray-50 text-slate-900 brico-200 my-8"
+            class="text-xl h-3/5 dark:text-gray-50 text-slate-900 brico-200"
           >
             <p
               class="dark:text-gray-50 opacity-75 text-slate-900 brico-200 mb-2 text-sm"
@@ -91,7 +91,7 @@
               :disabled="!updateBio"
               class="w-full h-full bg-transparent opacity-75 dark:text-gray-50 text-slate-900 brico-200"
             />
-            <p v-if="!updateBio">
+            <p v-if="!updateBio" class="my-2">
               {{ users[0]?.biography }}
             </p>
           </div>
@@ -99,7 +99,7 @@
           <div class="h-1/5" v-if="users[0]?.biography">
             <button
               v-if="!updateBio"
-              class="flex items-center brico-800 dark:hover:bg-green-500 hover:bg-green-500 justify-center px-4 py-3 dark:bg-slate-900 dark:text-gray-50 text-slate-900 bg-gray-200 rounded-lg text-pretty text-sm"
+              class="flex items-center brico-800 dark:hover:bg-green-500 mt-3 hover:bg-green-500 justify-center px-4 py-3 dark:bg-slate-900 dark:text-gray-50 text-slate-900 bg-gray-200 rounded-lg text-pretty text-sm"
               @click="updateBiography"
             >
               Change your biography
@@ -115,13 +115,13 @@
           </div>
           <div
             v-if="!users[0]?.biography"
-            class="flex items-start flex-col h-5/6 justify-start p-4"
+            class="flex items-start flex-col h-5/6 justify-start"
           >
             <UTextarea
               placeholder="Write your biography here"
               v-model="newBiography"
               maxlength="140"
-              class="w-full bg-transparent opacity-75 dark:text-gray-50 text-slate-900 brico-200"
+              class="w-full bg-transparent opacity-75 dark:text-gray-50 text-slate-900 brico-200 my-2"
             />
             <button
               class="flex items-center brico-800 dark:hover:bg-green-500 px-2 py-3 hover:bg-green-500 justify-center dark:bg-slate-900 dark:text-gray-50 text-slate-900 bg-gray-200 rounded-lg text-pretty text-sm"
@@ -135,7 +135,7 @@
     </div>
     <div
       v-if="!users[0]?.current_plan"
-      class="w-full h-full bg-gray-100 z-10 relative rounded-xl dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden p-14"
+      class="w-full h-full bg-gray-100 z-50 mb-12 relative rounded-xl dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden p-14"
     >
       <div class="flex">
         <div
