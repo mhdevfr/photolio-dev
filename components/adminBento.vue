@@ -2,7 +2,7 @@
   <div class="w-5/6 h-full flex flex-col justify-center">
     <div class="flex items-center justify-center p-0">
       <div
-        class="h-80 w-full bg-gray-100 flex justify-between dark:bg-slate-800 dark:shadow-[0px_0px_10px_0px_#f7fafc] shadow-[0px_0px_10px_0px_#1a202c] mb-6 mr-6 rounded-xl"
+        class="h-full w-full bg-gray-100 flex justify-between dark:bg-slate-800 dark:shadow-[0px_0px_10px_0px_#f7fafc] shadow-[0px_0px_10px_0px_#1a202c] mr-6 mb-6 rounded-xl p-10"
       >
         <div
           class="text-slate-900 w-1/2 text-start flex dark:text-gray-50 flex-col p-4"
@@ -23,7 +23,7 @@
         </div>
         <div
           v-else
-          class="text-slate-900 w-1/2 text-start flex dark:text-gray-50 flex-col p-4"
+          class="text-slate-900 w-1/2 h-1/4 text-start flex dark:text-gray-50 flex-col p-10"
         >
           <h1 class="text-3xl brico-800 p-4">👋 Hey!</h1>
           <div class="w-full h-full">
@@ -63,7 +63,7 @@
       </div>
 
       <div
-        class="w-3/4 flex flex-col h-80 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] mb-6 rounded-xl"
+        class="w-3/4 flex flex-col h-1/4 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] mb-6 rounded-xl"
       >
         <div class="h-full flex flex-col justify-around">
           <h1
@@ -135,7 +135,7 @@
     </div>
     <div
       v-if="!users[0]?.current_plan"
-      class="w-full h-80 bg-gray-100 z-10 relative rounded-xl dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden"
+      class="w-full h-full bg-gray-100 z-10 relative rounded-xl dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden p-14"
     >
       <div class="flex">
         <div
@@ -162,7 +162,7 @@
     <div
       @mouseover="showPhotolio"
       v-if="users[0]?.current_plan"
-      class="w-full h-80 hover:opacity-50 bg-gray-100 z-10 relative rounded-xl flex justify-center items-center dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden"
+      class="w-full h-full hover:opacity-50 bg-gray-100 z-10 relative rounded-xl flex justify-center items-center dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden"
     >
       <div
         class="absolute w-5/6 h-5/6 bottom-0 rounded-t-lg flex flex-col bg-gray-50 dark:bg-slate-900"
@@ -179,7 +179,7 @@
             <div class="w-1/3">
               <img
                 src="../assets/images/lugubre.png"
-                class="h-40 rounded-full w-40"
+                class="h-full rounded-full w-40"
               />
             </div>
             <div class="flex flex-col w-full justify-start">
