@@ -3,9 +3,7 @@
     class="flex flex-col items-center w-40 h-full overflow-hidden text-slate-900 bg-gray-100 dark:bg-gray-800 dark:text-slate-100"
   >
     <a class="flex items-center justify-center w-full px-3 mt-3 p-4" href="#">
-      <Icon name="eos-icons:admin" />
-      <span class="ml-2 text-sm font-bold brico-800">Dashboard</span>
-      
+      <LogoPhotolio class="text-2xl"></LogoPhotolio>
     </a>
     <div class="w-full px-2">
       <div
@@ -18,20 +16,20 @@
           <Icon name="iconamoon:home" />
           <span class="ml-2 text-sm font-medium brico-800">Home</span>
         </a>
-        <a
-          class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-700 hover:text-white dark:hover:bg-indigo-500"
-          href="#"
-        >
+
+        <!-- Correct NuxtLink -->
+        <NuxtLink :to="`/dashboard/pictures`" class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-700 hover:text-white dark:hover:bg-indigo-500">
           <Icon name="et:pictures" />
-          <span class="ml-2 text-sm font-medium brico-800">Pictures</span>
-        </a>
-        <a
+          <span class="ml-2 text-sm font-medium">Pictures</span>
+        </NuxtLink>
+
+        <NuxtLink
+          :to="`/dashboard/plan`"
           class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-700 hover:text-white dark:hover:bg-indigo-500"
-          href="#"
         >
           <Icon name="ri:contract-fill" />
           <span class="ml-2 text-sm font-medium brico-800">Plan</span>
-        </a>
+        </NuxtLink>
       </div>
       <div
         class="flex flex-col items-center w-full mt-2 border-t border-gray-700 dark:border-gray-500"
@@ -46,7 +44,7 @@
             class="absolute top-0 left-0 w-2 h-2 mt-2 ml-2 bg-indigo-500 rounded-full dark:bg-indigo-400"
           ></span>
         </a>
-        <darkButton/>
+        <darkButton />
       </div>
     </div>
     <button
@@ -62,6 +60,8 @@
 <script lang="ts" setup>
 const client = useSupabaseClient();
 const user = useSupabaseUser();
+const userSlug = user?.value?.id;  
+
 const signOut = async () => {
   const { error } = await client.auth.signOut();
   navigateTo("/");

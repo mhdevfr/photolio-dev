@@ -1,12 +1,11 @@
 // nuxt.config.js
 export default defineNuxtConfig({
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
-
   devtools: { enabled: true },
   devServer: {
-    port: 24678, // Spécifie un port personnalisé si nécessaire
+    port: 24678, 
   },
   modules: [
     '@nuxt/ui',
@@ -17,6 +16,10 @@ export default defineNuxtConfig({
     '@formkit/auto-animate/nuxt',
     'nuxt-marquee',
   ],
+  ui: {
+    loading: 'chasing-dots',
+    
+  },
 
   supabase: {
     redirect: false

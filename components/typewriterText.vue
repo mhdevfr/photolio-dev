@@ -2,7 +2,7 @@
   <div>
     <div
       ref="typewriter"
-      class="text-[64px] font-semibold ml-6 brico-800"
+      class="text-6xl font-semibold p-6 text-slate-950 brico-800"
     ></div>
   </div>
 </template>

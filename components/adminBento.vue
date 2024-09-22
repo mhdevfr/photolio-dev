@@ -50,7 +50,7 @@
             </select>
             <Button
               @click="addDetails"
-              class="text-sm text-center mt-2 px-3 brico-800 py-3  rounded-lg dark:bg-slate-900 dark:hover:bg-gray-50 hover:dark:text-slate-950 bg-gray-200"
+              class="text-sm text-center mt-2 px-3 brico-800 py-3 rounded-lg dark:bg-slate-900 dark:hover:bg-gray-50 hover:dark:text-slate-950 bg-gray-200"
             >
               Add your informations
             </Button>
@@ -67,16 +67,14 @@
       >
         <div class="h-full flex flex-col justify-around p-10">
           <h1
-            class="text-3xl flex justify-start items-center rounded-xl dark:text-gray-50 "
+            class="text-3xl flex justify-start items-center rounded-xl dark:text-gray-50"
           >
             <span class="brico-800 underline-offset-8 underline mb-2"
               >About you</span
             >
           </h1>
 
-          <div
-            class="text-xl h-3/5 dark:text-gray-50 text-slate-900 brico-200"
-          >
+          <div class="text-xl h-3/5 dark:text-gray-50 text-slate-900 brico-200">
             <p
               class="dark:text-gray-50 opacity-75 text-slate-900 brico-200 mb-2 text-sm"
               v-if="updateBio"
@@ -160,10 +158,22 @@
       </div>
     </div>
     <div
-      v-if="users[0]?.current_plan"
-      class="w-full h-full mb-12 hover:opacity-50 bg-gray-100 z-50 relative rounded-xl flex justify-center items-center dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden"
-    >
+    v-if="users[0]?.current_plan"
+    class="relative w-full h-full mb-12 bg-gray-100 z-40 rounded-xl flex justify-center items-center dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden group"
+  >
+      <Nuxt-Link
+        to="/"
+        class="relative z-40 py-3 px-4 overflow-hidden flex items-center justify-center shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-orange-600 before:duration-500 before:ease-out hover:shadow-orange-600 hover:before:h-56 hover:before:w-56 dark:bg-gray-50 dark:text-slate-950 text-gray-50 bg-slate-900 rounded-lg text-pretty text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+      >
+        <span class="z-50"> Explore your photolio </span>
+      </Nuxt-Link>
+
       <div
+      @mouseover="applyBlur"
+      @mouseleave="removeBlur"
+      :class="{
+        'hover:backdrop-blur-xl': isBlurred
+      }"
         class="absolute w-5/6 h-5/6 bottom-0 rounded-t-lg flex flex-col bg-gray-50 dark:bg-slate-900"
       >
         <div
@@ -207,7 +217,6 @@ const users = ref<User[]>([]);
 const updateBio = ref<boolean>(false);
 const biographyContent = ref<string>("");
 const loading = ref<boolean>(false);
-const btnShowPhotolio = ref<boolean>(false);
 const countries = ref<countries[]>([]);
 const country = ref(countries.value[0] || null);
 const newPseudo = ref<string>("");
@@ -231,7 +240,8 @@ interface User {
   current_plan: string;
 }
 
-// Fonction pour ajouter les détails
+
+
 async function addDetails(pseudo: string, work: string, country: string) {
   if (!user.value || !user.value.id) {
     toast.add({
@@ -270,10 +280,12 @@ async function addBiography() {
     return;
   }
 
-  const { data, error } = await client.from("users").update({
-    biography: newBiography.value,
-  })
-  .eq("id", user.value.id); 
+  const { data, error } = await client
+    .from("users")
+    .update({
+      biography: newBiography.value,
+    })
+    .eq("id", user.value.id);
 
   if (error) {
     toast.add({
@@ -299,9 +311,7 @@ async function getCountries() {
   }
 }
 
-function showPhotolio() {
-  btnShowPhotolio.value = !btnShowPhotolio.value;
-}
+
 
 function updateBiography() {
   updateBio.value = !updateBio.value;

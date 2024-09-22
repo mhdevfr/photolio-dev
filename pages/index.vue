@@ -12,6 +12,8 @@
         </div>
         <div>
             <BentoContact></BentoContact>
+            <faqTabs class="w-screen"/>
+
         </div>
         <div>
             <footerSection></footerSection>
@@ -23,10 +25,6 @@
 </template>
 
 <script lang="ts">
-import Bento from '~/components/bento.vue';
-import BentoContact from '~/components/bentoContact.vue';
-import PricingCards from '~/components/pricingCards.vue';
-
 </script>
 
 <style lang="css">

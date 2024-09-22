@@ -1,6 +1,6 @@
 <template>
     <nuxt-link to="/">
-        <h1 class="text-3xl brico-800 flex items-center">
+        <h1 class="brico-800 flex items-center">
           Photofoli
           <Icon
             name="material-symbols:camera"

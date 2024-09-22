@@ -11,7 +11,7 @@
       class="text-slate-900 dark:text-gray-100 opacity-60 text-center font-raleway lg:text-2xl text-xl font-normal w-4/6 brico-200"
     >
       Showcase your creativity with a stunning portfolio thats ready in no time,
-      without compromising on quality or style.
+      without compromising on quality or style used by {{ count }} users.
     </p>
     <heroButton/>
     <Transition name="bounce">
@@ -22,5 +22,6 @@
   </div>
 </template>
 <script setup lang="ts">
+const { data: count } = await useFetch('api/count')
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="h-full w-full bg-gray-50 justify-center items-center dark:bg-gray-900 flex">
     <adminSidebar class="w-1/6 h-screen" />
+    <nuxt-child />
     <div class="flex flex-col items-center h-full w-full justify-center">
       <adminBento />
     </div>
