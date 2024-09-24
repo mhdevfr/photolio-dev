@@ -1,7 +1,7 @@
 <template>
     <nuxt-link to="/">
         <h1 class="brico-800 flex items-center">
-          Photofoli
+          Photoli
           <Icon
             name="material-symbols:camera"
             class="animate-spin-slow"

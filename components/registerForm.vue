@@ -70,7 +70,8 @@ const signUp = async () => {
     toast.add({ title: "An error occurred while registering" });
   } else {
     toast.add({
-      title: "Success, check your inbox mail to confirm your account",
+      title: "Success",
+      description: "Check your inbox mail to confirm your account",
     });
     navigateTo("/login");
   }
@@ -78,8 +79,11 @@ const signUp = async () => {
 
 const signOut = async () => {
   const { error } = await client.auth.signOut();
-  if (error){
-    toast.add({ title: "An error occured while clicking" });
+  if (error) {
+    toast.add({ 
+      title: "An error as occured", 
+      description: "There is an error please wait a few moments"
+    });
   } else {
     toast.add({ title: "You have been logged out" });
   }

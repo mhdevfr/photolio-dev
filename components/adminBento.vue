@@ -34,6 +34,7 @@
               v-model="newPseudo"
             />
             <input
+              :maxlength="20"
               type="text"
               class="py-1 px-2 rounded-lg bg-transparent outline-none mt-2"
               placeholder="Enter your work"
@@ -305,9 +306,11 @@ async function getCountries() {
   if (data) {
     countries.value = data.map((country: any) => country.country_name);
     country.value = countries.value[0];
-    console.log("Countries loaded:", countries.value);
   } else {
-    console.error("Error loading countries:", error);
+    toast.add({
+      title: "Error",
+      description: error.message,
+    });
   }
 }
 

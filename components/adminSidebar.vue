@@ -61,10 +61,17 @@
 const client = useSupabaseClient();
 const user = useSupabaseUser();
 const userSlug = user?.value?.id;  
+const toast = useToast();
 
 const signOut = async () => {
   const { error } = await client.auth.signOut();
   navigateTo("/");
-  if (error) console.log("SignOut Error:", error);
+  if (error) {
+    toast.add({
+      severity: "error",
+      summary: "Error",
+      detail: error.message,
+    });
+  }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="absolute top-0 w-full h-20 flex items-center justify-center">
     <div class="w-1/6 m-8 brico-800">
-      <LogoPhotolio></LogoPhotolio>
+      <LogoPhotolio class="text-2xl"></LogoPhotolio>
     </div>
     <div class="w-5/6 justify-center items-center m-8 brico-200">
       <ul class="flex justify-end">
@@ -41,11 +41,16 @@
 <script setup lang="ts">
 const client = useSupabaseClient();
 const user = useSupabaseUser();
-
+const toast = useToast();
 const signOut = async () => {
   const { error } = await client.auth.signOut();
   navigateTo("/");
-  if (error) console.log("SignOut Error:", error);
+  if(error){
+    toast.add({
+      title: "Error",
+      description: error.message,
+    });
+  }
 };
 </script>
 

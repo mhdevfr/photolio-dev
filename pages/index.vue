@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full flex justify-center flex-col items-center w-full">
+    <div class="h-full flex justify-center flex-col items-center w-screen">
         <navbar></navbar>
         <div class="flex flex-col items-center h-screen justify-center">
             <heroTexte></heroTexte>

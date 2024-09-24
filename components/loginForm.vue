@@ -51,37 +51,32 @@
 const client = useSupabaseClient();
 const email = ref("");
 const password = ref("");
-
+const toast = useToast();
 async function signIn() {
   const { data, error } = await client.auth.signInWithPassword({
     email: email.value,
     password: password.value,
   });
 
-  if (error) {
-    console.error("Error logging in:", error);
-    return;
-  }
 
   const userId = data.user?.id;
-  console.log("User ID:", userId);
-
   if (userId) {
     const { data: profile, error: profileError } = await client
       .from("users")
       .select("id, pseudo, biography, profil_picture")
       .eq("id", userId);
-    console.log("Profile:", profile);
-
     if (profileError) {
       console.error("Error fetching profile:", profileError);
       return;
     }
 
     if (profile && profile[0]) {
-      navigateTo(`/dashboard/${profile[0].id}`); 
+      navigateTo(`/dashboard/${profile[0].id}`);
     } else {
-      console.error("Profile not found.");
+      toast.add({
+        title: "Profile not found",
+        description: "No profile found.",
+      });
     }
   } else {
     console.error("No user ID found.");
@@ -96,6 +91,11 @@ const signInGoogle = async () => {
 
 const signOut = async () => {
   const { error } = await client.auth.signOut();
-  if (error) console.log("SignOut Error:", error);
+  if (error) {
+    toast.add({
+      title: "Error",
+      description: error.message,
+    });
+  }
 };
 </script>

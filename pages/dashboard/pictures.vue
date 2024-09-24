@@ -3,11 +3,12 @@
     v-if="user"
     class="h-full w-full flex items-end justify-center bg-gray-50 dark:bg-slate-950 text-slate-950 dark:text-gray-50"
   >
-    <adminSidebar class="w-1/6 h-screen fixed left-0" />
+    <adminSidebar class="w-1/6 h-screen fixed left-0 top-0" />
     <div class="w-5/6 flex items-center pl-20 justify-center">
       <div
-        class="h-screen w-full bg-slate-950 pl-20 py-20 grid grid-cols-3 gap-5"
+        class="h-full w-full bg-slate-950 pl-20 py-20 grid grid-cols-3 gap-5"
       >
+      <UploadComponent/>
         <USkeleton
           v-if="loading"
           v-for="index in 6"
@@ -34,23 +35,16 @@ const user = useSupabaseUser();
 const loading = ref(true);
 const images = ref([]);
 
-const generateRandomImageUrl = () => {
-  const randomId = Math.floor(Math.random() * 1000);
-  return `https://picsum.photos/200/300?random=${randomId}`;
-};
-
-const generateRandomImages = () => {
-  return Array.from({ length: 3 }, (_, i) => ({
-    id: i,
-    url: generateRandomImageUrl(),
-  }));
-};
-
-images.value = generateRandomImages();
-
-if (images.value.length > 0) {
+async function fetchImages() {
+  const { data, error } = await client.from("pictures").select("*");
+  if (error) {
+    console.error(error);
+    return;
+  }
+  images.value = data;
   loading.value = false;
 }
+fetchImages();
 </script>
 
 <style lang="css">
