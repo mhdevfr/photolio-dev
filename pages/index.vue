@@ -1,28 +1,29 @@
 <template>
-    <div class="h-full flex justify-center flex-col items-center w-screen">
+    <div class="h-full flex justify-center flex-col items-center w-full">
         <navbar></navbar>
-        <div class="flex flex-col items-center h-screen justify-center">
+        <bottomNavbar></bottomNavbar>
+        <div class="flex flex-col items-center h-screen justify-center w-full">
             <heroTexte></heroTexte>
         </div>
-        <div class="flex flex-col justify-center  items-center w-5/6">
+        <div class="flex flex-col justify-center items-center w-full md:w-5/6">
             <Bento></Bento>
         </div>
-        <div v-motion-pop-visible>
+        <div v-motion-pop-visible-once class="w-full">
             <PricingCards></PricingCards>
         </div>
-        <div>
+        <div class="w-full">
             <BentoContact></BentoContact>
-            <faqTabs class="w-screen"/>
-
+            <faqTabs class="w-full"/>
         </div>
-        <div>
+        <div class="w-full">
             <footerSection></footerSection>
         </div>
-        <div>
+        <div class="w-full">
           <blurFooter></blurFooter>
         </div>
     </div>
 </template>
+
 
 <script lang="ts">
 </script>

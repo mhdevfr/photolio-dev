@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto text-gray-900 antialiased">
-    <main class="mx-4 my-16">
+    <main class="mx-8 my-16">
       <div class="text-center">
         <BadgePricing class="mb-4"></BadgePricing>
         <h1
