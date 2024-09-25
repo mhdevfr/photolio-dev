@@ -2,23 +2,24 @@
   <div
     class="flex flex-col items-center w-40 h-full overflow-hidden text-slate-900 bg-gray-100 dark:bg-gray-800 dark:text-slate-100"
   >
-    <a class="flex items-center justify-center w-full px-3 mt-3 p-4" href="#">
+    <a class="flex items-center justify-center w-full px-3 mt-3 p-4">
       <LogoPhotolio class="text-2xl"></LogoPhotolio>
     </a>
     <div class="w-full px-2">
       <div
         class="flex flex-col items-center justify-center w-full mt-3 border-t border-gray-700 dark:border-gray-500"
       >
-        <a
+        <nuxt-link
+          :to="`/dashboard/${userSlug}`"
           class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-700 hover:text-white dark:hover:bg-indigo-500"
-          href="#"
         >
           <Icon name="iconamoon:home" />
           <span class="ml-2 text-sm font-medium brico-800">Home</span>
-        </a>
-
-        <!-- Correct NuxtLink -->
-        <NuxtLink :to="`/dashboard/pictures`" class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-700 hover:text-white dark:hover:bg-indigo-500">
+        </nuxt-link>
+        <NuxtLink
+          :to="`/dashboard/pictures`"
+          class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-700 hover:text-white dark:hover:bg-indigo-500"
+        >
           <Icon name="et:pictures" />
           <span class="ml-2 text-sm font-medium">Pictures</span>
         </NuxtLink>
@@ -36,7 +37,6 @@
       >
         <a
           class="relative flex items-center w-full h-12 px-3 mt-2 rounded hover:text-white hover:bg-indigo-700 dark:hover:bg-indigo-500"
-          href="#"
         >
           <Icon name="mdi:message" />
           <span class="ml-2 text-sm font-medium brico-800">Support</span>
@@ -60,7 +60,7 @@
 <script lang="ts" setup>
 const client = useSupabaseClient();
 const user = useSupabaseUser();
-const userSlug = user?.value?.id;  
+const userSlug = user?.value?.id;
 const toast = useToast();
 
 const signOut = async () => {

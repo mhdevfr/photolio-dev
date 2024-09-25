@@ -65,21 +65,31 @@ async function signIn() {
       .from("users")
       .select("id, pseudo, biography, profil_picture")
       .eq("id", userId);
-    if (profileError) {
-      console.error("Error fetching profile:", profileError);
+      if(!userId){
+        toast.add({
+          title: "Error",
+          description: "No user found",
+        });
       return;
     }
 
     if (profile && profile[0]) {
       navigateTo(`/dashboard/${profile[0].id}`);
-    } else {
       toast.add({
-        title: "Profile not found",
-        description: "No profile found.",
+        title: "Success",
+        description: "Logged in successfully",
+      });
+    } else if (profile && !profile[0]) {
+      toast.add({
+        title: "Error",
+        description: "No user found",
       });
     }
   } else {
-    console.error("No user ID found.");
+    toast.add({
+      title: "Error",
+      description: error.message,
+    });
   }
 }
 

@@ -68,7 +68,7 @@ const signUp = async () => {
   });
   if (error) {
     toast.add({ title: "An error occurred while registering" });
-  } else {
+  } if(!error){ 
     toast.add({
       title: "Success",
       description: "Check your inbox mail to confirm your account",
@@ -79,7 +79,7 @@ const signUp = async () => {
 
 const signOut = async () => {
   const { error } = await client.auth.signOut();
-  if (error) {
+  if (!error) {
     toast.add({ 
       title: "An error as occured", 
       description: "There is an error please wait a few moments"
