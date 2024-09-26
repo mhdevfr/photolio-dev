@@ -1,11 +1,13 @@
 <template>
-  <div class="w-5/6 h-screen flex flex-col justify-center">
-    <div class="flex items-center justify-center">
+  <div
+    class="w-5/6 lg:h-screen h-full flex flex-col-reverse lg:flex-col lg:items-start items-center lg:m-0 m-10 justify-center"
+  >
+    <div class="flex items-center lg:flex-row flex-col justify-center">
       <div
-        class="h-5/6 w-full bg-gray-100 flex justify-between dark:bg-slate-800 dark:shadow-[0px_0px_10px_0px_#f7fafc] shadow-[0px_0px_10px_0px_#1a202c] mr-8 rounded-xl p-10"
+        class="h-5/6 w-full lg:items-start items-center bg-gray-100 flex lg:flex-row flex-col justify-around dark:bg-slate-800 dark:shadow-[0px_0px_10px_0px_#f7fafc] shadow-[0px_0px_10px_0px_#1a202c] lg:mr-8 rounded-xl lg:p-10"
       >
         <div
-          class="text-slate-900 w-1/2 text-start flex dark:text-gray-50 flex-col p-4"
+          class="text-slate-900 lg:w-1/2 w-full text-start flex dark:text-gray-50 flex-col p-4"
           v-if="users[0]?.pseudo"
         >
           <h1 class="text-3xl brico-800 underline-offset-8 underline">
@@ -23,7 +25,7 @@
         </div>
         <div
           v-if="!users[0]?.pseudo"
-          class="text-slate-900 w-1/2 text-start flex dark:text-gray-50 flex-col"
+          class="text-slate-900 w-1/2 text-start lg:mt-0 mt-12 flex dark:text-gray-50 flex-col"
         >
           <h1 class="text-3xl brico-800 mb-2">👋 Hey !</h1>
           <div class="w-full h-full flex flex-col justify-center">
@@ -64,7 +66,7 @@
       </div>
 
       <div
-        class="w-3/4 flex flex-col h-5/6 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] rounded-xl"
+        class="lg:w-3/4 w-full my-12 flex flex-col h-5/6 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] rounded-xl"
       >
         <div class="h-full flex flex-col justify-around p-10">
           <h1
@@ -114,7 +116,7 @@
           </div>
           <div
             v-if="!users[0]?.biography"
-            class="flex items-start h-full flex-col h-5/6 justify-start"
+            class="flex items-start h-full flex-col justify-start"
           >
             <UTextarea
               placeholder="Write your biography here"
@@ -134,7 +136,7 @@
     </div>
     <div
       v-if="!users[0]?.current_plan"
-      class="w-full h-full bg-gray-100 z-50 mb-12 relative rounded-xl dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden p-14"
+      class="w-full h-full bg-gray-100 z-50 mb-12 lg:relative rounded-xl dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden p-14"
     >
       <div class="flex">
         <div
@@ -159,50 +161,47 @@
       </div>
     </div>
     <div
-    v-if="users[0]?.current_plan"
-    class="relative w-full h-full mb-12 bg-gray-100 z-40 rounded-xl flex justify-center items-center dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden group"
-  >
+      v-if="users[0]?.current_plan"
+      class="lg:relative w-full h-full mb-12 bg-gray-100 lg:z-40 rounded-xl flex lg:justify-center lg:items-center dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden group"
+    >
       <Nuxt-Link
         to="/"
-        class="relative z-40 py-3 px-4 overflow-hidden flex items-center justify-center shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-orange-600 before:duration-500 before:ease-out hover:shadow-orange-600 hover:before:h-56 hover:before:w-56 dark:bg-gray-50 dark:text-slate-950 text-gray-50 bg-slate-900 rounded-lg text-pretty text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+        class="relative z-40 lg:py-3 lg:px-4 overflow-hidden flex items-center justify-center shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-orange-600 before:duration-500 before:ease-out hover:shadow-orange-600 hover:before:h-56 hover:before:w-56 dark:bg-gray-50 dark:text-slate-950 text-gray-50 bg-slate-900 rounded-lg text-pretty text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100"
       >
-        <span class="z-50"> Explore your photolio </span>
+        <span class="z-50 lg:block hidden">Explore your photolio</span>
       </Nuxt-Link>
 
       <div
-      @mouseover="applyBlur"
-      @mouseleave="removeBlur"
-      :class="{
-        'hover:backdrop-blur-xl': isBlurred
-      }"
-        class="absolute w-5/6 h-5/6 bottom-0 rounded-t-lg flex flex-col bg-gray-50 dark:bg-slate-900"
+        class="lg:absolute lg:w-5/6 w-full lg:h-5/6 h-full bottom-0 rounded-t-lg flex flex-col bg-gray-50 dark:bg-slate-900"
       >
         <div
           class="h-9 w-full bg-gray-200 dark:bg-slate-700 rounded-t-lg flex items-center justify-start p-4"
         >
-          <span class="w-5 h-5 rounded-full bg-red-400"></span>
-          <span class="w-5 h-5 rounded-full mx-2 bg-yellow-400"></span>
-          <span class="w-5 h-5 rounded-full bg-green-400"></span>
+          <span class="lg:w-5 lg:h-5 size-3 rounded-full bg-red-400"></span>
+          <span
+            class="lg:w-5 lg:h-5 size-3 rounded-full mx-2 bg-yellow-400"
+          ></span>
+          <span class="lg:w-5 lg:h-5 size-3 rounded-full bg-green-400"></span>
         </div>
-        <div class="flex w-full items-center">
-          <div class="flex w-full m-10">
-            <div class="w-1/4 h-full flex justify-center">
+        <div class="flex w-full flex-col lg:mt-0 mt-8 lg:flex-row items-center">
+          <div class="flex w-full lg:flex-row flex-col lg:m-10 m-0">
+            <div class="lg:w-1/4 w-full h-full flex justify-center">
               <img
                 src="../assets/images/lugubre.png"
-                class="h-full rounded-full w-3/4"
+                class="w-[200px] h-[200px] rounded-full"
               />
             </div>
-            <div class="flex flex-col w-3/5 justify-start">
-              <span class="text-5xl brico-800"
+            <div class="flex flex-col lg:w-3/5 w-full lg:mt-0 mt-8 items-center justify-center">
+              <span class="text-5xl brico-800 lg:w-full w-5/6 lg:text-start text-center"
                 >👋 {{ users[0]?.pseudo }}
                 <span class="text-2xl brico-800">.{{ users[0]?.country }}</span>
               </span>
-              <p class="mt-6 w-4/5 brico-200">{{ users[0]?.biography }}</p>
+              <p class="mt-6 w-4/5 text-start brico-200">{{ users[0]?.biography }}</p>
             </div>
-            <div class="flex flex-col w-1/12 h-full">
-              <Icon name="mdi:email" size="32"></Icon>
+            <div class="flex lg:flex-col lg:w-1/12 w-full items-center justify-end lg:mr-0 h-full">
+              <Icon name="mdi:email" size="32" class=""></Icon>
               <Icon name="mdi:pinterest" size="32" class="my-2"></Icon>
-              <Icon name="mdi:linkedin" size="32"></Icon>
+              <Icon name="mdi:linkedin" size="32" class="lg:mr-0 mr-4"></Icon>
             </div>
           </div>
         </div>
@@ -240,8 +239,6 @@ interface User {
   work: string;
   current_plan: string;
 }
-
-
 
 async function addDetails(pseudo: string, work: string, country: string) {
   if (!user.value || !user.value.id) {
@@ -313,8 +310,6 @@ async function getCountries() {
     });
   }
 }
-
-
 
 function updateBiography() {
   updateBio.value = !updateBio.value;

@@ -70,10 +70,10 @@ const fetchImages = async () => {
             .createSignedUrl(`${user.value.id}/photos/${file.name}`, 60 * 60); 
 
         if (signedUrlError) {
-          console.error(
-            "Erreur lors de la création de l'URL signée: ",
-            signedUrlError.message
-          );
+          toast.add({
+            title: "Erreur lors de la récupération des images",
+            description: signedUrlError.message,
+          });
           return null;
         }
 
@@ -86,10 +86,12 @@ const fetchImages = async () => {
 
     images.value = images.value.filter((img) => img !== null); 
   } catch (error) {
-    console.error("Erreur lors de la récupération des images: ", error.message);
+    toast.add({
+      title: "Erreur lors de la récupération des images",
+      description: error.message,
+    });
   } finally {
     loading.value = false;
-    console.log(images.value);
   }
 };
 
