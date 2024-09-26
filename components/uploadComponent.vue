@@ -6,7 +6,8 @@ const emit = defineEmits(["update:path", "upload"]);
 const supabase = useSupabaseClient();
 const uploading = ref(false);
 const files = ref();
-
+const user = useSupabaseUser();
+const userId = user?.value?.id;
 const uploadPicture = async (evt) => {
   files.value = evt.target.files;
   try {
@@ -19,7 +20,7 @@ const uploadPicture = async (evt) => {
     const file = files.value[0];
     const fileExt = file.name.split(".").pop();
     const fileName = `${Math.random()}.${fileExt}`;
-    const filePath = `${fileName}`;
+    const filePath = `${userId}/photos/${fileName}`;
 
     const { error: uploadError } = await supabase.storage
       .from("pictures")
@@ -50,6 +51,7 @@ watch(path, () => {
   }
 });
 </script>
+
 
 <template>
   <div class="flex items-center justify-center h-full w-full" v-if="!uploading">
