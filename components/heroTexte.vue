@@ -13,15 +13,14 @@
       Showcase your creativity with a stunning portfolio thats ready in no time,
       without compromising on quality or style used by {{ count }} users.
     </p>
-    <heroButton/>
+    <heroButton />
     <Transition name="bounce">
-
-    <Icon name="iconamoon:mouse-fill"  size="48" class="mt-16 animate-bounce" />
-
+      <Icon
+        name="iconamoon:mouse-fill"
+        size="48"
+        class="mt-16 animate-bounce opacity-0 lg:opacity-100"
+      />
     </Transition>
   </div>
 </template>
-<script setup lang="ts">
-const { data: count } = await useFetch('api/count')
-</script>
-
+<script setup lang="ts"></script>
