@@ -25,10 +25,10 @@
         </div>
         <div
           v-if="!users[0]?.pseudo"
-          class="text-slate-900 w-1/2 text-start lg:mt-0 mt-12 flex dark:text-gray-50 flex-col"
+          class="text-slate-900 lg:w-1/2 w-4/5 text-start lg:mt-0 mt-12 flex dark:text-gray-50 flex-col"
         >
-          <h1 class="text-3xl brico-800 mb-2">👋 Hey !</h1>
-          <div class="w-full h-full flex flex-col justify-center">
+          <h1 class="text-3xl brico-800 mb-8">👋 Hey !</h1>
+          <div class="lg:w-full h-full flex flex-col justify-center">
             <input
               type="text"
               class="py-1 px-2 rounded-lg bg-transparent outline-none"
@@ -60,13 +60,14 @@
           </div>
         </div>
 
-        <div class="h-full rounded-xl flex justify-center w-1/2">
-          <img src="../assets/images/lugubre.png" class="h-full w-auto p-4" />
+        <div class="h-full rounded-xl flex justify-center lg:w-1/2 w-full">
+          <uploadProfilePicture/>
+
         </div>
       </div>
 
       <div
-        class="lg:w-3/4 w-full my-12 flex flex-col h-5/6 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] rounded-xl"
+        class="w-full my-12 flex flex-col h-5/6 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] rounded-xl"
       >
         <div class="h-full flex flex-col justify-around p-10">
           <h1
@@ -136,18 +137,18 @@
     </div>
     <div
       v-if="!users[0]?.current_plan"
-      class="w-full h-full bg-gray-100 z-50 mb-12 lg:relative rounded-xl dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden p-14"
+      class="w-full h-full p-4 bg-gray-100 z-50 mb-12 lg:relative rounded-xl dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden lg:p-14"
     >
       <div class="flex">
         <div
-          class="text-3xl w-1/2 brico-800 text-slate-900 dark:text-gray-50 flex p-4 flex-col m-4"
+          class="text-3xl lg:w-1/2 w-5/6 brico-800 text-slate-900 dark:text-gray-50 flex lg:p-4 flex-col lg:m-4"
         >
-          <span class="text-4xl">Explore our plans</span>
-          <span class="text-3xl">Make your choices</span>
-          <span class="text-2xl">Take the advantages</span>
+          <span class="lg:text-4xl text-2xl">Explore our plans</span>
+          <span class="lg:text-3xl text-xl">Make your choices</span>
+          <span class="lg:text-2xl text-lg">Take the advantages</span>
           <Nuxt-Link
             to="/"
-            class="text-sm text-center mt-2 w-1/3 py-3 rounded-lg dark:bg-slate-900 dark:hover:bg-gray-50 hover:dark:text-slate-950 bg-gray-200"
+            class="text-sm text-center mt-2 lg:w-1/3 w-full py-3 px-2 rounded-lg dark:bg-slate-900 dark:hover:bg-gray-50 hover:dark:text-slate-950 bg-gray-200"
           >
             Discover our plans
           </Nuxt-Link>
@@ -155,7 +156,7 @@
         <div class="w-1/2 h-full relative">
           <img
             src="/assets/images/kaitoExample.png"
-            class="rotate-12 w-full -z-10 absolute -top-10 right-0"
+            class="rotate-12 lg:w-full -z-10 absolute lg:-top-10 top-5 right-5 lg:right-0"
           />
         </div>
       </div>
@@ -249,7 +250,7 @@ async function addDetails(pseudo: string, work: string, country: string) {
     return;
   }
 
-  const { data, error } = await client.from("users").insert({
+  const { data, error } = await client.from("users").upsert({
     id: user.value.id,
     pseudo: newPseudo.value,
     work: newWork.value,
@@ -280,7 +281,7 @@ async function addBiography() {
 
   const { data, error } = await client
     .from("users")
-    .update({
+    .upsert({
       biography: newBiography.value,
     })
     .eq("id", user.value.id);

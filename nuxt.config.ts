@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   devServer: {
-    port: 24678, 
+    port: 22678, 
   },
   modules: [
     '@nuxt/ui',
@@ -18,7 +18,6 @@ export default defineNuxtConfig({
   ],
   ui: {
     loading: 'chasing-dots',
-    
   },
 
   supabase: {
