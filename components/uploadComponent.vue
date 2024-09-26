@@ -28,8 +28,6 @@ const uploadPicture = async (evt) => {
 
     if (uploadError) throw uploadError;
 
-    emit("update:path", filePath);
-    emit("upload");
 
     toast.add({
       title: "Success",
@@ -45,11 +43,7 @@ const uploadPicture = async (evt) => {
   }
 };
 
-watch(path, () => {
-  if (path.value) {
-    downloadImage();
-  }
-});
+
 </script>
 
 

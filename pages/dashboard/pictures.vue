@@ -15,7 +15,7 @@
       <div class="h-full lg:grid lg:gap-5 w-full dark:bg-slate-950 bg-gray-50 pb-20 lg:py-20">
         <div class="grid gap-5 lg:grid-cols-3">
           <div class="w-full">
-            <UploadComponent @upload="handleImageUpload"  />
+            <UploadComponent @upload="fetchImages"  />
           </div>
           <USkeleton
             v-if="loading"
