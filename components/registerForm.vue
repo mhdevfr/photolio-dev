@@ -1,45 +1,40 @@
 <template>
   <div
-  class="border lg:w-1/4  w-full bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 shadow-[0px_0px_10px_1px_#f7fafc] h-3/4 flex justify-center items-center rounded-xl"
+  class=" lg:w-1/4 w-full bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 shadow-[0px_0px_10px_1px_#f7fafc] h-3/4 flex justify-center items-center rounded-xl p-4 "
   >
-    <div class="flex justify-center items-center py-12">
-      <div class="w-full h-full flex rounded-2xl">
+    <div class="flex justify-center items-center py-12 max-w-full">
+      <div class="w-full h-full flex rounded-2xl max-w-full">
         <form
-          class="w-full h-full text-center flex flex-col text-gray-100 items-center rounded-md"
+          class="w-full h-full text-center flex flex-col text-gray-100 items-center rounded-md max-w-full"
         >
-          <h1 class="text-2xl brico-800 text-center lg:text-4xl my-4 ">👋 Welcome to Photolio</h1>
-          <button
-            class="px-16 py-2 mt-6 mb-8 rounded-md items-center justify-between bg-slate-800 flex"
-          >
-            <Icon name="flat-color-icons:google" size="26" />
-            <h1 class="text-gray-100 text-sm">Google OAuth</h1>
-          </button>
+          <h1 class="text-2xl brico-800 text-center lg:text-4xl my-4 max-w-full">👋 Welcome to Photolio</h1>
+         
           <input
             v-model="email"
             type="email"
-            class="brico-200 h-12 py-2 w-3/4 p-2 mb-4 rounded-md text-start outline-none"
+            class="brico-200 px-4 py-2 p-4 w-3/4 mb-8 rounded-md text-start outline-none max-w-full"
             placeholder="david.joe@gmail.com"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
           <input
             v-model="password"
             type="password"
-            class="brico-200 h-12 py-2 w-3/4 mb-4 p-2 rounded-md text-start outline-none"
+            class="brico-200 px-4 py-2 p-4 w-3/4 mb-8 rounded-md text-start outline-none max-w-full"
             placeholder="yourpassword"
           />
           <input
             type="password"
             v-model="passwordConfirmation"
-            class="brico-200 h-12 py-2 w-3/4 p-2 rounded-md mb-4 text-start outline-none"
+            class="brico-200 px-4 py-2 p-4 w-3/4 mb-8 rounded-md text-start outline-none max-w-full"
             placeholder="confirmyourpassword"
           />
-          <nuxt-link to="/login" class="underline-offset-2"
+          <nuxt-link to="/login" class="underline-offset-2 max-w-full"
             >Already have account ?</nuxt-link
           >
           <button
             value="Register"
             @click="signUp"
-            class="bg-green-400 mt-6 flex items-center justify-center p-6 py-2 rounded-md"
+            class="bg-green-400 mt-6 flex items-center justify-center p-6 py-2 rounded-md max-w-full"
           >
             Create account
           </button>
@@ -48,7 +43,6 @@
     </div>
   </div>
 </template>
-
 <script setup lang="ts">
 const toast = useToast();
 const client = useSupabaseClient();

@@ -23,13 +23,13 @@
           <input
             type="email"
             v-model="email"
-            class="brico-200 h-12 w-3/4 mb-8 rounded-md text-start outline-none"
+            class="brico-200 px-4 py-2 p-4 w-3/4 mb-4 rounded-md text-start outline-none"
             placeholder="david.joe@gmail.com"
           />
           <input
             type="password"
             v-model="password"
-            class="brico-200 h-12 w-3/4 mb-8 rounded-md text-start outline-none"
+            class="brico-200 px-4 py-2 p-4 w-3/4 mb-4 rounded-md text-start outline-none"
             placeholder="yourpassword"
           />
           <nuxt-link to="/register" class="underline-offset-2"
