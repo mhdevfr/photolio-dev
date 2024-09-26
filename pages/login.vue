@@ -1,21 +1,22 @@
 <template>
-  <div class="h-screen w-full flex justify-center items-center flex-col">
+  <div class="h-screen w-screen overflow-hidden p-10 flex justify-center items-center">
     <navbar />
-    <loginForm v-if="!register"/>
+    <bottomNavbar />
+    <loginForm v-if="!user" />
     <elementCard
-      class="parallax absolute left-24 z-[-1]"
+      class="parallax absolute left-24 lg:block hidden z-[-1]"
       v-motion-slide-top
     />
     <secondElementCard
-      class="parallax absolute drop-shadow-2xl right-24 bottom-24 z-[-1]"
+      class="parallax absolute drop-shadow-2xl right-24 lg:block hidden bottom-24 z-[-1]"
       v-motion-slide-right
     />
     <thirdElementCard
-      class="parallax absolute drop-shadow-2xl right-52 top-24 z-[-1]"
+      class="parallax absolute drop-shadow-2xl lg:block hidden right-52 top-24 z-[-1]"
       v-motion-slide-bottom
     />
     <fourthElementCard
-      class="parallax absolute drop-shadow-2xl left-48 bottom-10 z-[-1]"
+      class="parallax absolute drop-shadow-2xl lg:block hidden left-48 bottom-10 z-[-1]"
       v-motion-slide-left
     />
   </div>
@@ -23,13 +24,12 @@
 
 <script setup lang="ts">
 const toasts = useToast();
-const register = ref(false);
+const user = useSupabaseUser();
 const getRandomInRange = (min, max) => Math.random() * (max - min) + min;
 const elements = [];
 const handleMouseMove = (event) => {
   const { clientX: x, clientY: y } = event;
-
-  elements.forEach(el => {
+  elements.forEach((el) => {
     const { offsetWidth: width, offsetHeight: height } = el;
     const rect = el.getBoundingClientRect();
     const elementCenterX = rect.left + width / 2;
@@ -38,26 +38,25 @@ const handleMouseMove = (event) => {
     const deltaY = (y - elementCenterY) / window.innerHeight;
     const moveX = deltaX * el.dataset.factorX;
     const moveY = deltaY * el.dataset.factorY;
-    
+
     el.style.transform = `translate(${moveX}px, ${moveY}px)`;
   });
 };
 
-onMounted(() => {
-  window.addEventListener('mousemove', handleMouseMove);
 
-  document.querySelectorAll('.parallax').forEach(el => {
-    el.dataset.factorX = getRandomInRange(10, 70); 
+onMounted(() => {
+  window.addEventListener("mousemove", handleMouseMove);
+  document.querySelectorAll(".parallax").forEach((el) => {
+    el.dataset.factorX = getRandomInRange(10, 70);
     el.dataset.factorY = getRandomInRange(10, 70);
     elements.push(el);
   });
 });
 
 onUnmounted(() => {
-  window.removeEventListener('mousemove', handleMouseMove);
+  window.removeEventListener("mousemove", handleMouseMove);
 });
 </script>
-
 
 <style lang="css">
 .parallax {

@@ -19,6 +19,7 @@
         class="mt-16 flex flex-col items-center justify-center space-y-8 lg:flex-row lg:items-stretch lg:space-x-8 lg:space-y-0"
       >
         <section
+          v-motion-pop-visible-once
           class="flex w-full max-w-sm flex-col space-y-6 rounded-xl bg-[#FBFBFF] p-12 shadow-[9px_9px_0px_#CCC]"
         >
           <div class="flex-shrink-0">
@@ -154,6 +155,7 @@
         </section>
 
         <section
+          v-motion-pop-visible-once
           class="flex w-full max-w-sm flex-col space-y-6 rounded-xl bg-[#FBFBFF] p-12 shadow-[9px_9px_0px_#E2DDFF]"
         >
           <div class="flex-shrink-0">
@@ -285,6 +287,7 @@
         </section>
 
         <section
+          v-motion-pop-visible-once
           class="flex w-full max-w-sm flex-col space-y-6 rounded-xl bg-[#FBFBFF] p-12 shadow-[9px_9px_0px_#CCC]"
         >
           <div class="flex-shrink-0">

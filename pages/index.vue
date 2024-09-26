@@ -8,7 +8,7 @@
         <div class="flex flex-col justify-center items-center w-full md:w-5/6">
             <Bento></Bento>
         </div>
-        <div v-motion-pop-visible-once class="w-full">
+        <div class="w-full">
             <PricingCards></PricingCards>
         </div>
         <div class="w-full">

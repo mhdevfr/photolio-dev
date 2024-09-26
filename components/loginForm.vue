@@ -1,10 +1,10 @@
 <template>
   <div
-    class="border w-1/4 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 shadow-[0px_0px_10px_1px_#f7fafc] h-2/3 flex justify-center items-center rounded-xl"
+    class="border lg:w-1/4  w-full bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 shadow-[0px_0px_10px_1px_#f7fafc] h-2/3 flex justify-center items-center rounded-xl"
   >
     <div class="flex justify-center items-center pb-1">
       <div
-        class="w-full bg- h-1/2 flex justify-center items-center rounded-2xl"
+        class="w-full h-1/2 flex justify-center items-center rounded-2xl"
       >
         <div
           class="w-96 h-96 text-center flex flex-col text-gray-100 items-center rounded-md"
