@@ -2,7 +2,7 @@
   <div class="h-screen w-screen overflow-hidden p-10 flex justify-center items-center">
     <navbar />
     <bottomNavbar />
-    <loginForm v-if="!user" />
+    <loginForm />
     <elementCard
       class="parallax absolute left-24 lg:block hidden z-[-1]"
       v-motion-slide-top
