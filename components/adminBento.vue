@@ -198,7 +198,7 @@
               </span>
               <p class="mt-6 w-4/5 text-start brico-200">{{ users[0]?.biography }}</p>
             </div>
-            <div class="flex lg:flex-col lg:w-1/12 w-full items-center justify-end lg:mr-0 h-full">
+            <div class="flex lg:flex-col lg:w-1/12 w-full items-center justify-end lg:mr-0 lg:my-0 my-4 h-full">
               <Icon name="mdi:email" size="32" class=""></Icon>
               <Icon name="mdi:pinterest" size="32" class="my-2"></Icon>
               <Icon name="mdi:linkedin" size="32" class="lg:mr-0 mr-4"></Icon>
