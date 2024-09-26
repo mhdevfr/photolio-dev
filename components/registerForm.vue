@@ -1,8 +1,8 @@
 <template>
   <div
-  class="border lg:w-1/4  w-full bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 shadow-[0px_0px_10px_1px_#f7fafc] h-2/3 flex justify-center items-center rounded-xl"
+  class="border lg:w-1/4  w-full bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 shadow-[0px_0px_10px_1px_#f7fafc] h-3/4 flex justify-center items-center rounded-xl"
   >
-    <div class="flex justify-center items-center pb-1">
+    <div class="flex justify-center items-center py-12">
       <div class="w-full h-full flex rounded-2xl">
         <form
           class="w-full h-full text-center flex flex-col text-gray-100 items-center rounded-md"

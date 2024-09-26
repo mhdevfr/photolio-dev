@@ -9,7 +9,7 @@
         <div
           class="w-96 h-96 text-center flex flex-col text-gray-100 items-center rounded-md"
         >
-        <h1 class="text-4xl brico-800 text-center my-4 mt-4">
+        <h1 class="text-2xl brico-800 text-center lg:text-4xl my-4">
             👋 Welcome
             <span class="">Back</span>
           </h1>

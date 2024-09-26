@@ -71,8 +71,8 @@
               </div>
             </form>
           </div>
+          <bottomNavbar/>
         </section>
-
   </div>
 </template>
 <style lang="css" scoped>
