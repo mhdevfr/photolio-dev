@@ -5,9 +5,9 @@
     <div class="flex justify-center items-center pb-1">
       <div class="w-full h-full flex rounded-2xl">
         <form
-          class="w-96 h-96 text-center flex flex-col text-gray-100 items-center rounded-md"
+          class="w-full h-full text-center flex flex-col text-gray-100 items-center rounded-md"
         >
-          <h1 class="text-4xl brico-800 text-center">👋 Welcome to Photolio</h1>
+          <h1 class="text-2xl brico-800 text-center lg:text-4xl ">👋 Welcome to Photolio</h1>
           <button
             class="px-16 py-2 mt-6 mb-8 rounded-md items-center justify-between bg-slate-800 flex"
           >
