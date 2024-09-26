@@ -7,7 +7,7 @@
         <form
           class="w-full h-full text-center flex flex-col text-gray-100 items-center rounded-md"
         >
-          <h1 class="text-2xl brico-800 text-center lg:text-4xl ">👋 Welcome to Photolio</h1>
+          <h1 class="text-2xl brico-800 text-center lg:text-4xl my-4 ">👋 Welcome to Photolio</h1>
           <button
             class="px-16 py-2 mt-6 mb-8 rounded-md items-center justify-between bg-slate-800 flex"
           >
