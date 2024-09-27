@@ -7,7 +7,7 @@
         class="h-5/6 w-full lg:items-start items-center bg-gray-100 flex lg:flex-row flex-col justify-around dark:bg-slate-800 dark:shadow-[0px_0px_10px_0px_#f7fafc] shadow-[0px_0px_10px_0px_#1a202c] lg:mr-8 rounded-xl lg:p-10"
       >
         <div
-          class="text-slate-900 lg:w-1/2 w-full text-start flex dark:text-gray-50 flex-col p-4"
+          class="text-slate-900 lg:w-1/2 w-full text-start flex dark:text-gray-50 flex-col "
           v-if="users[0]?.pseudo"
         >
           <h1 class="text-3xl brico-800 underline-offset-8 underline">
