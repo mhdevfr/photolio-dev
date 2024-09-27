@@ -2,7 +2,7 @@
   <div
     class="flex flex-col items-center w-40 h-full overflow-hidden text-slate-900 bg-gray-100 dark:bg-gray-800 dark:text-slate-100"
   >
-    <a class="flex items-center justify-center w-full px-3 mt-3 p-4">
+    <a class="flex items-center justify-between w-full px-3 mt-3 p-4">
       <LogoPhotolio class="text-2xl"></LogoPhotolio>
     </a>
     <div class="w-full px-2">

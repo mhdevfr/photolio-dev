@@ -49,64 +49,22 @@
 </template>
 
 <script setup lang="ts">
-const user = useSupabaseUser();
-const loading = ref(true);
-const images = ref([]);
+import { fetchImages } from '@/utils/imageUtils';
+
+interface Image {
+  id: string;
+  url: string;
+}
+
+const images = ref<Image[]>([]);
+const loading = ref(false);
+const toast = ref(null);
+const user = useSupabaseUser(); 
 const supabase = useSupabaseClient();
 
-const fetchImages = async () => {
-  if (!user.value) return;
-  loading.value = true;
-  try {
-    const { data, error } = await supabase.storage
-      .from("pictures")
-      .list(`${user.value.id}/photos`, {
-        limit: 10,
-        offset: 0,
-      });
-
-    if (error) {
-      console.error(
-        "Erreur lors de la récupération des images: ",
-        error.message
-      );
-      return;
-    }
-
-    images.value = await Promise.all(
-      data.map(async (file) => {
-        const { data: signedUrlData, error: signedUrlError } =
-          await supabase.storage
-            .from("pictures")
-            .createSignedUrl(`${user.value.id}/photos/${file.name}`, 60 * 60); 
-
-        if (signedUrlError) {
-          toast.add({
-            title: "Erreur lors de la récupération des images",
-            description: signedUrlError.message,
-          });
-          return null;
-        }
-
-        return {
-          id: file.name,
-          url: signedUrlData.signedUrl,
-        };
-      })
-    );
-
-    images.value = images.value.filter((img) => img !== null); 
-  } catch (error) {
-    toast.add({
-      title: "Erreur lors de la récupération des images",
-      description: error.message,
-    });
-  } finally {
-    loading.value = false;
-  }
-};
-
-fetchImages();
+onMounted(() => {
+  fetchImages(user, images, loading, toast, supabase);
+});
 </script>
 
 <style lang="css">

@@ -7,7 +7,7 @@
         class="h-5/6 w-full lg:items-start items-center bg-gray-100 flex lg:flex-row flex-col justify-around dark:bg-slate-800 dark:shadow-[0px_0px_10px_0px_#f7fafc] shadow-[0px_0px_10px_0px_#1a202c] lg:mr-8 rounded-xl lg:p-10"
       >
         <div
-          class="text-slate-900 lg:w-1/2 w-full text-start flex dark:text-gray-50 flex-col "
+          class="text-slate-900 lg:w-1/2 w-full text-start flex dark:text-gray-50 lg:mt-0 lg:ml-0 mt-8 ml-8 flex-col"
           v-if="users[0]?.pseudo"
         >
           <h1 class="text-3xl brico-800 underline-offset-8 underline">
@@ -164,12 +164,17 @@
       v-if="users[0]?.current_plan"
       class="lg:relative w-full h-full mb-12 bg-gray-100 lg:z-40 rounded-xl flex lg:justify-center lg:items-center dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden group"
     >
-      <Nuxt-Link
-        to="/"
-        class="relative z-40 lg:py-3 lg:px-4 overflow-hidden flex items-center justify-center shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-orange-600 before:duration-500 before:ease-out hover:shadow-orange-600 hover:before:h-56 hover:before:w-56 dark:bg-gray-50 dark:text-slate-950 text-gray-50 bg-slate-900 rounded-lg text-pretty text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-      >
+      <NuxtLink
+        :to="`/photolio/${users[0]?.pseudo}`"
+        class="relative z-40 lg:py-3 lg:px-4 overflow-hidden flex items-center
+        justify-center shadow-2xl transition-all before:absolute before:h-0
+        before:w-0 before:rounded-full before:bg-orange-600 before:duration-500
+        before:ease-out hover:shadow-orange-600 hover:before:h-56
+        hover:before:w-56 dark:bg-gray-50 dark:text-slate-950 text-gray-50
+        bg-slate-900 rounded-lg text-pretty text-sm transition-opacity
+        duration-300 opacity-0 group-hover:opacity-100" >
         <span class="z-50 lg:block hidden">Explore your photolio</span>
-      </Nuxt-Link>
+      </NuxtLink>
 
       <div
         class="lg:absolute lg:w-5/6 w-full lg:h-5/6 h-full bottom-0 rounded-t-lg flex flex-col bg-gray-50 dark:bg-slate-900"
@@ -217,6 +222,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { fetchData } from "@/utils/userUtils";
 const toast = useToast();
 const client = useSupabaseClient();
 const user = useSupabaseUser();
@@ -375,23 +381,9 @@ async function update() {
   }
 }
 
-async function fetchData() {
-  const { data, error } = await client
-    .from("users")
-    .select(
-      "id, pseudo, profil_picture, biography, country, work, current_plan"
-    )
-    .eq("id", user.value?.id);
 
-  if (data) {
-    users.value = data as User[];
-    biographyContent.value = users.value[0].biography;
-  } else {
-    console.error(error);
-  }
-}
 
-fetchData();
+
+fetchData(client, user, users, biographyContent);
 getCountries();
 </script>
-<style lang="css" scoped></style>
