@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full flex flex-col w-full bg-[#FEFAF1]">
+  <div class="h-full flex flex-col w-full bg-[#FCF9F5]">
     <div>
         <TemplateDarkBtn></TemplateDarkBtn>
         <TemplateMobileNavbar></TemplateMobileNavbar>
