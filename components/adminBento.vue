@@ -7,7 +7,7 @@
         class="h-5/6 w-full lg:items-start items-center bg-gray-100 flex lg:flex-row flex-col justify-around dark:bg-slate-800 dark:shadow-[0px_0px_10px_0px_#f7fafc] shadow-[0px_0px_10px_0px_#1a202c] lg:mr-8 rounded-xl lg:p-10"
       >
         <div
-          class="text-slate-900 lg:w-1/2 w-full text-start flex dark:text-gray-50 flex-col p-4"
+          class="text-slate-900 lg:w-1/2 w-full text-start flex dark:text-gray-50 flex-col "
           v-if="users[0]?.pseudo"
         >
           <h1 class="text-3xl brico-800 underline-offset-8 underline">
@@ -61,8 +61,7 @@
         </div>
 
         <div class="h-full rounded-xl flex justify-center lg:w-1/2 w-full">
-          <uploadProfilePicture/>
-
+          <uploadProfilePicture />
         </div>
       </div>
 
@@ -192,14 +191,21 @@
                 class="w-[200px] h-[200px] rounded-full"
               />
             </div>
-            <div class="flex flex-col lg:w-3/5 w-full lg:mt-0 mt-8 items-center justify-center">
-              <span class="text-5xl brico-800 lg:w-full w-5/6 lg:text-start text-center"
+            <div
+              class="flex flex-col lg:w-3/5 w-full lg:mt-0 mt-8 items-center justify-center"
+            >
+              <span
+                class="text-5xl brico-800 lg:w-full w-5/6 lg:text-start text-center"
                 >👋 {{ users[0]?.pseudo }}
                 <span class="text-2xl brico-800">.{{ users[0]?.country }}</span>
               </span>
-              <p class="mt-6 w-4/5 text-start brico-200">{{ users[0]?.biography }}</p>
+              <p class="mt-6 w-4/5 text-start brico-200">
+                {{ users[0]?.biography }}
+              </p>
             </div>
-            <div class="flex lg:flex-col lg:w-1/12 w-full items-center justify-end lg:mr-0 lg:my-0 my-4 h-full">
+            <div
+              class="flex lg:flex-col lg:w-1/12 w-full items-center justify-end lg:mr-0 lg:my-0 my-4 h-full"
+            >
               <Icon name="mdi:email" size="32"></Icon>
               <Icon name="mdi:pinterest" size="32" class="my-2"></Icon>
               <Icon name="mdi:linkedin" size="32" class="lg:mr-0 mr-4"></Icon>
@@ -241,11 +247,19 @@ interface User {
   current_plan: string;
 }
 
-async function addDetails(pseudo: string, work: string, country: string) {
+async function addDetails() {
   if (!user.value || !user.value.id) {
     toast.add({
       title: "Error",
       description: "User ID not found.",
+    });
+    return;
+  }
+
+  if (!newPseudo.value || !newWork.value || !newCountry.value) {
+    toast.add({
+      title: "Error",
+      description: "Please fill in all fields.",
     });
     return;
   }
@@ -279,9 +293,17 @@ async function addBiography() {
     return;
   }
 
+  if (!newBiography.value) {
+    toast.add({
+      title: "Error",
+      description: "Biography cannot be empty.",
+    });
+    return;
+  }
+
   const { data, error } = await client
     .from("users")
-    .upsert({
+    .update({
       biography: newBiography.value,
     })
     .eq("id", user.value.id);
@@ -289,7 +311,8 @@ async function addBiography() {
   if (error) {
     toast.add({
       title: "Error",
-      description: error.message,
+      description:
+        error.message || "An error occurred while adding your biography.",
     });
   } else {
     toast.add({
@@ -298,7 +321,6 @@ async function addBiography() {
     await fetchData();
   }
 }
-
 async function getCountries() {
   const { data, error } = await client.from("countries").select("country_name");
   if (data) {
