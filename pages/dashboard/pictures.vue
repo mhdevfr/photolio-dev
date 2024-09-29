@@ -17,7 +17,7 @@
       <div
         class="h-full w-full dark:bg-slate-950 bg-gray-50 lg:pl-20 lg:py-20  lg:grid lg:grid-cols-3 lg:gap-5"
       >
-        <UploadComponent @upload="fetchImages" />
+        <UploadComponent @fetchImages="fetchImages" />
         <USkeleton
           v-if="loading"
           v-for="index in 9"
@@ -69,9 +69,9 @@ const loading = ref(false);
 const toast = ref(null);
 const user = useSupabaseUser();
 const supabase = useSupabaseClient();
-
+emits: ["fetchImages"];
 onMounted(() => {
-  fetchImages(user, images, loading, toast, supabase);
+  fetchImages(user, images, loading, supabase);
 });
 </script>
 
