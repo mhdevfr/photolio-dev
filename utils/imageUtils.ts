@@ -4,13 +4,12 @@ interface Image {
 }
 
 export const fetchImages = async (
-  user: Ref<{ id: string } | null>,  
-  images: Ref<Image[]>,             
-  loading: Ref<boolean>,             
-  toast: any,                        
-  supabase: SupabaseClient           
+  user: Ref<{ id: string } | null>,
+  images: Ref<Image[]>,
+  loading: Ref<boolean>,
+  supabase: SupabaseClient
 ): Promise<void> => {
-  if (!user.value) return;
+  if (!user?.value) return;
   loading.value = true;
   try {
     const { data, error } = await supabase.storage
