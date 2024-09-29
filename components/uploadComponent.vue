@@ -48,7 +48,7 @@ const uploadPicture = async (evt) => {
 
 
 <template>
-  <div class="flex lg:flex-row flex-col lg:items-start items-center justify-center h-full w-full" v-if="!uploading">
+  <div class="flex lg:flex-row flex-col lg:items-center items-center justify-center h-full w-full" v-if="!uploading">
     <label
       for="dropzone-file"
       class="flex flex-col items-center justify-center lg:w-full w-3/4 h-96 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-slate-900 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500"
