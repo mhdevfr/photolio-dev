@@ -7,6 +7,7 @@ export const fetchImages = async (
   user: Ref<{ id: string } | null>,  
   images: Ref<Image[]>,             
   loading: Ref<boolean>,             
+  toast: any,                        
   supabase: SupabaseClient           
 ): Promise<void> => {
   if (!user?.value) return;

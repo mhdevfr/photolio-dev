@@ -27,22 +27,22 @@
             <img
               src="../assets/images/marquee.png"
               alt=""
-              class="mx-2 sm:max-w-[150px] md:max-w-[200px] lg:max-w-[250px]"
+              class="mx-2 sm:max-w-[150px] md:max-w-[200px] lg:max-w-[250px] rounded-xl"
             />
             <img
               src="../assets/images/marquee2.png"
               alt=""
-              class="mx-2 sm:max-w-[150px] md:max-w-[200px] lg:max-w-[250px]"
+              class="mx-2 sm:max-w-[150px] md:max-w-[200px] lg:max-w-[250px] rounded-xl"
             />
             <img
               src="../assets/images/marquee3.png"
               alt=""
-              class="mx-2 sm:max-w-[150px] md:max-w-[200px] lg:max-w-[250px]"
+              class="mx-2 sm:max-w-[150px] md:max-w-[200px] lg:max-w-[250px] rounded-xl"
             />
             <img
               src="../assets/images/marquee4.png"
               alt=""
-              class="mx-2 sm:max-w-[150px] md:max-w-[200px] lg:max-w-[250px]"
+              class="mx-2 sm:max-w-[150px] md:max-w-[200px] lg:max-w-[250px] rounded-xl"
             />
           </NuxtMarquee>
         </div>
