@@ -44,27 +44,23 @@
 <script setup lang="ts">
 const faq = ref([
   {
-    id: "wW",
+    id: "Who",
     question: "Who made this website ?",
-    answer: `We needed a way to animate DOM elements without adding to the
-    virtual DOM in Vue and React. And it turned out our solution was gonna work
-    great for lots of other use cases as well.`,
+    answer: `This website was made by Milan and Enzo, two young developpers since 2023, and they are still working on it.
+    we are always looking for new ideas to improve our website, so don't hesitate to contact us.
+    `,
   },
   {
     id: "license",
     question: "Is it free ?",
-    answer: `It sure is! AutoAnimate is MIT licensed, which basically means you
-    are free to take it and do whatever you want with it. If you find it useful
-    consider <a href="https://github.com/sponsors/formkit">supporting our open source efforts</a>.`,
+    answer: `It sure is! Photolio is open source and licensed under the MIT license.
+      You can use it for personal or commercial projects, and you can modify it however you like.`,
   },
   {
     id: "who",
     question: "Can we upload nice photos ?",
-    answer: `AutoAnimate is a team effort 💪 . Most of the code was written by
-      <a href='https://twitter.com/jpschroeder'>Justin Schroeder</a>,
-      <a href='https://twitter.com/0xBOYD'>Andrew Boyd</a> played a key
-      role on the docs, and the rest of the <a href='https://formkit.com'>FormKit</a>
-      team held down the fort.`,
+    answer: `Of course! You can upload any photos you like except illegal stuff and as long as they are your own.
+      We recommend uploading high-quality images to get the best results.`,
   },
 ]);
 

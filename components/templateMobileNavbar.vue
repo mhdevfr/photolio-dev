@@ -5,7 +5,7 @@
     <nuxt-link to="/" class="text-white hover:text-gray-300">
       Home
     </nuxt-link>
-    <nuxt-link to="/plans" class="text-white hover:text-gray-300">
+    <nuxt-link to="/" class="text-white hover:text-gray-300">
       Gallery
     </nuxt-link>
     <nuxt-link to="/contact" class="text-white hover:text-gray-300">

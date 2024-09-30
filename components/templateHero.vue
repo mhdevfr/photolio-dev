@@ -2,13 +2,12 @@
   <section class="mt-32 mx-auto max-w-screen-xl pb-4 px-4">
     <div class="space-y-6 flex-1">
       <h1 class="text-neutral-900 font-bold text-5xl md:text-6xl lg:text-8xl lg:text-center">
-        Kaito Yamato
+        {{ users[0]?.pseudo }}
       </h1>
       <p
         class="text-neutral-500 max-w-xl text-lg leading-snug md:text-2xl lg:text-center lg:max-w-3xl lg:mx-auto"
       >
-        Hi I’m Kaito I’m a japanese photographer, I’ve worked for most of the
-        popular newspapers as a photographer for 25 beautiful years.
+        {{ users?.biography }}
       </p>
       <div
         class="flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-4 lg:justify-center"
@@ -44,14 +43,16 @@
         About me
       </h1>
       <p class="text-neutral-500 max-w-xl text-lg leading-relaxed">
-        Hi I’m Kaito I’m a japanese photographer, I’ve worked for most of the popular newspapers as a photographer for 25 beautiful years.
+        {{ user?.biography }}
       </p>
     </div>
   </section>
+  <TemplateFooter/>
 </template>
 
-
-
-  
-  
-  <script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  users: Object as PropType<User>,
+  photos: Array as PropType<Photo[]>,
+});
+</script>

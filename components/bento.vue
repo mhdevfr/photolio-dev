@@ -2,25 +2,30 @@
   <div
     class="flex h-screen w-full flex-col items-center justify-center rounded-lg p-6 mb-12"
   >
-    <div class="grid h-full w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-8 gap-4">
-      
-      <div
-        class="col-span-1 md:col-span-2 lg:col-span-3 row-span-8 rounded-3xl bg-gray-50 flex flex-col justify-between"
-      >
-        <div>
-          <TypewriterText></TypewriterText>
-        </div>
-        <div
-          class="flex justify-center items-end flex-wrap space-x-6 mt-auto mb-0"
-        ></div>
-      </div>
+    <div
+      class="grid h-full w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-8 gap-4"
+    >
+    <div
+    class="col-span-1 md:col-span-2 lg:col-span-3 row-span-8 rounded-3xl bg-gray-50 flex flex-col justify-between overflow-hidden"
+  >
+    <div>
+      <TypewriterText></TypewriterText>
+    </div>
+    <div
+      class="flex justify-start items-end flex-wrap space-x-6 relative mt-auto mb-0"
+    >
+      <img src="../assets/images/examplePhotolio.svg" class="w-3/4 z-50 " />
+      <img src="../assets/images/iphonePhotolio.svg" class="w-1/6 absolute right-16 rotate-12 top-0 z-50" />
+    </div>
+  </div>
 
-      
       <div
         class="row-span-12 col-span-1 md:col-span-2 lg:col-span-2 rounded-3xl flex justify-center flex-col bg-gray-100"
       >
         <div class="mb-10">
-          <h1 class="text-3xl sm:text-3xl md:text-5xl text-slate-900 font-semibold p-4 brico-800">
+          <h1
+            class="text-3xl sm:text-3xl md:text-5xl text-slate-900 font-semibold p-4 brico-800"
+          >
             Showcase your best shots
           </h1>
           <NuxtMarquee class="flex">
@@ -48,8 +53,9 @@
         </div>
       </div>
 
-
-      <div class="row-span-12 col-span-1 md:col-span-2 lg:col-span-1 rounded-3xl bg-gray-100">
+      <div
+        class="row-span-12 col-span-1 md:col-span-2 lg:col-span-1 rounded-3xl bg-gray-100"
+      >
         <counting></counting>
         <p
           class="text-3xl sm:text-3xl md:text-4xl lg:text-[48px] text-slate-900 brico-800 font-semibold text-center mb-6"

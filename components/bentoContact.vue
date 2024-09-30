@@ -12,7 +12,7 @@
         </p>
         <div class="mt-4 sm:mt-6 pb-3 flex items-center justify-center gap-x-4 sm:gap-x-6">
           <nuxt-link
-            to="#"
+            to="/contact"
             class="rounded-md bg-gray-100 px-3.5 py-2.5 text-base font-semibold text-slate-900 hover:bg-black hover:text-gray-100"
           >
             Contact us

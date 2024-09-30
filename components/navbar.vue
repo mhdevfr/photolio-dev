@@ -13,7 +13,7 @@
             class="px-4 sm:px-10 py-2 underline-offset-4 underline decoration-sky-500"
             >Home</nuxt-link
           >
-          <nuxt-link to="/plans" class="px-4 sm:px-10 py-2">Plans</nuxt-link>
+          <nuxt-link to="/" class="px-4 sm:px-10 py-2">Plans</nuxt-link>
           <nuxt-link to="/contact" class="px-4 sm:px-10 py-2">Contact</nuxt-link>
           <nuxt-link
             v-if="user"
