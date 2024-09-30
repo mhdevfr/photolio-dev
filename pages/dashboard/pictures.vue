@@ -9,21 +9,44 @@
       <div class="lg:hidden flex items-center justify-center flex-col ">
         <LogoPhotolio class="text-4xl mt-12"/>
         <p class="brico-200 text-2xl lg:hidden block p-10">Ajoutez les photos que vous désirez 
-          <span class="border-b border-b-2 border-yellow-400">rapidement</span>
+          <span class="border-b-2 border-yellow-400">rapidement</span>
           , et en conservant leurs 
-          <span class="border-b border-b-2 border-blue-400">qualités</span>
+          <span class="border-b-2 border-blue-400">qualités</span>
            !</p>
       </div>
-      <div
-        class="h-full w-full dark:bg-slate-950 bg-gray-50 lg:pl-20 lg:py-20  lg:grid lg:grid-cols-3 lg:gap-5"
-      >
-        <UploadComponent @fetchImages="fetchImages" />
+
+     
+      <div class="min-h-screen w-full dark:bg-slate-950 bg-gray-50 lg:pl-20 lg:py-20 lg:grid lg:grid-cols-3 lg:gap-5">
+       
+        <label
+          for="dropzone-file"
+          class="flex flex-col items-center justify-center h-96 lg:p-0 p-6 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:bg-slate-950 dark:border-gray-600"
+        >
+          <div class="flex flex-col items-center justify-center text-center">
+            <Icon name="ion:cloud-upload-outline" class="size-10 bg-gray-50 dark:bg-slate-950" />
+            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+              <span class="font-semibold">Click to upload</span> or drag and drop
+            </p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+          </div>
+          <input
+            id="dropzone-file"
+            @change="uploadPicture"
+            type="file"
+            class="hidden"
+            accept="image/*"
+          />
+        </label>
+
+       
         <USkeleton
           v-if="loading"
           v-for="index in 9"
           :key="index"
-          class="h-96 p-6 lg:p-0 rounded-lg"
+          class="h-96 lg:p-0 p-6 rounded-lg"
         />
+        
+       
         <div
           v-if="!loading"
           v-for="image in images"
@@ -48,6 +71,7 @@
       </div>
     </div>
   </div>
+  
   <div
     v-if="!loading && images.length === 0"
     class="flex items-center w-full h-full justify-center"
@@ -55,6 +79,8 @@
     <p class="text-4xl brico-800 text-center">Aucune image disponible</p>
   </div>
 </template>
+
+
 
 <script setup lang="ts">
 import { fetchImages } from "@/utils/imageUtils";

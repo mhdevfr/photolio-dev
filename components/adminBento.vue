@@ -66,7 +66,7 @@
       </div>
 
       <div
-        class="w-full my-12 flex flex-col h-5/6 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] rounded-xl"
+        class="w-full my-12 flex flex-col h-5/6 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] lg:px-10 rounded-xl"
       >
         <div class="h-full flex flex-col justify-around p-10">
           <h1
