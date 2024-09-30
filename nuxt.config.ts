@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   devServer: {
-    port: 24778, 
+    port: 20000, 
   },
   modules: [
     '@nuxt/ui',
@@ -17,10 +17,6 @@ export default defineNuxtConfig({
     'nuxt-marquee',
   ],
   ui: {
-    loading: 'chasing-dots',
-    theme: {
-      dark: true,
-    },
   },
   supabase: {
     redirect: false
