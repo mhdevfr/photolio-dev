@@ -20,7 +20,7 @@
        
         <label
           for="dropzone-file"
-          class="flex flex-col items-center justify-center h-96 lg:p-0 p-6 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:bg-slate-950 dark:border-gray-600"
+          class="flex flex-col items-center justify-center mt-5 h-96 lg:p-0 p-6 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:bg-slate-950 dark:border-gray-600"
         >
           <div class="flex flex-col items-center justify-center text-center">
             <Icon name="ion:cloud-upload-outline" class="size-10 bg-gray-50 dark:bg-slate-950" />
