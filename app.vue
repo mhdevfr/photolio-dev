@@ -9,9 +9,13 @@
 </template>
 
 <script setup lang="ts">
-
+definePageMeta({
+  middleware: ['reset-color-mod'],
+});
 </script>
 <style>
+
+
 .page-enter-active,
 .page-leave-active {
   transition: all 0.4s;

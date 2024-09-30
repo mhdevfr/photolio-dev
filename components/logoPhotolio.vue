@@ -1,6 +1,6 @@
 <template>
     <nuxt-link to="/">
-        <h1 class="brico-800 flex justi items-center">
+        <h1 class="brico-800 flex justify-center items-center">
           Photoli
           <Icon
             name="material-symbols:camera"
@@ -12,4 +12,6 @@
       </nuxt-link>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+
+</script>

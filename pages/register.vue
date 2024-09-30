@@ -23,6 +23,8 @@
 </template>
 
 <script setup lang="ts">
+
+
 const register = ref(false);
 
 const getRandomInRange = (min, max) => Math.random() * (max - min) + min;
@@ -57,6 +59,8 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("mousemove", handleMouseMove);
 });
+
+
 </script>
 
 <style lang="css">

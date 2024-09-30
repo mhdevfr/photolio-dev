@@ -56,6 +56,10 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("mousemove", handleMouseMove);
 });
+
+definePageMeta({
+  middleware: ['reset-color-mod'],
+});
 </script>
 
 <style lang="css">
