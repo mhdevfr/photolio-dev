@@ -20,14 +20,26 @@
     </div>
 
     <div class="grid grid-cols-1 gap-4 mt-8 lg:mt-32 lg:grid-cols-2 lg:gap-6">
-      <div v-for="picture in pictures" :key="picture.id">
+      <div v-motion-slide-visible-once-top v-for="picture in pictures" :key="picture.id" class="overflow-hidden aspect-video cursor-pointer rounded-xl relative group z-20">
+        <div class="rounded-xl z-50 opacity-0  group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end">
+          <div class="p-4 space-y-3 text-xl group-hover:translate-y-0 translate-y-4 pb-10 transition duration-300 ease-in-out">
+            <div class="font-bold">Dusk's Phantom</div> 
+            <div class="opacity-60 text-sm">
+              As the sun sets, the ninja emerges from the twilight, bathed in the golden light of the evening.
+            </div>
+          </div>
+        </div>
         <img
           :src="picture.url || '../assets/images/default-photo.jpg'"
-          class="w-[500px] h-[500px] object-cover rounded-xl"
+          class="w-full h-full object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl"
           alt="User's photo"
         />
+        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+          <TemplateHoverArrow />
+        </div>
       </div>
     </div>
+    
 
     <div class="flex justify-between items-center mt-4">
       <h1 class="text-neutral-900 dark:text-gray-50 font-bold text-3xl">
