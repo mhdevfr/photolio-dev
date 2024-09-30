@@ -49,22 +49,33 @@
       />
     </div>
 
-    <div class="space-y-6 flex-1 flex mt-4">
-      <div class="w-3/4">
+    <div class="space-y-6 flex-1 flex items-center lg:flex mt-4">
+      <div class="w-3/5">
         <h1 class="text-neutral-900 dark:text-gray-50 font-bold text-4xl">
           About me
         </h1>
+        <h1 class="brico-800 text-2xl mt-8">
+          I'm from {{ users?.country }}
+          <Icon :name="`twemoji:flag-${users?.country?.toLowerCase()}`" class="ml-2" />
+        </h1>
+        
         <p
           class="text-neutral-500 dark:text-gray-400 max-w-xl text-lg leading-relaxed"
         >
           {{ users?.biography || "No biography available" }}
         </p>
       </div>
-      <div class="w-1/4">
+      <div class="w-2/5 h-full">
         <img
-          :src="users?.avatar || '../assets/images/default-avatar.jpg'"
-          class="w-32 h-32 rounded-full mx-auto"
+          v-if="users?.avatar"
+          :src="users?.avatar"
+          class="w-full lg:w-40 h-40 rounded-full mx-auto"
           alt="User's avatar"
+        />
+        <img
+          src="../assets/images/marquee2.png"
+          class="w-full lg:w-40 h-auto rounded-full mx-auto"
+          v-else
         />
       </div>
     </div>
