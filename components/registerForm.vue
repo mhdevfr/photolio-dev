@@ -14,7 +14,6 @@
             type="email"
             class="brico-200 px-4 py-2 p-4 w-3/4 mb-8 rounded-md text-start outline-none max-w-full"
             placeholder="david.joe@gmail.com"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
           <input
             v-model="password"
@@ -46,7 +45,6 @@
 <script setup lang="ts">
 const toast = useToast();
 const client = useSupabaseClient();
-const user = useSupabaseUser();
 const email = ref("");
 const password = ref("");
 const passwordConfirmation = ref("");
@@ -62,7 +60,8 @@ const signUp = async () => {
   });
   if (error) {
     toast.add({ title: "An error occurred while registering" });
-  } if(!error){ 
+  } else { 
+    console.log(data);
     toast.add({
       title: "Success",
       description: "Check your inbox mail to confirm your account",
