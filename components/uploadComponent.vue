@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { fetchImages } from "@/utils/imageUtils";
 const props = defineProps(["path"]);
 const { path } = toRefs(props);
 const toast = useToast();
@@ -59,7 +60,7 @@ const uploadPicture = async (evt) => {
         <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
           <span class="font-semibold">Click to upload</span> or drag and drop
         </p>
-        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or WEBP (MAX. 15MB)</p>
       </div>
       <input
         id="dropzone-file"

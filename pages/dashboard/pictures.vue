@@ -5,55 +5,48 @@
   >
     <adminSidebar class="w-1/6 h-screen fixed left-0 top-0 lg:block hidden" />
     <AdminNavbarBottom class="lg:hidden block" />
-    <div class="lg:w-5/6 w-full flex lg:flex-row flex-col items-center lg:pl-20 justify-center">
-      <div class="lg:hidden flex items-center justify-center flex-col ">
-        <LogoPhotolio class="text-4xl mt-12"/>
-        <p class="brico-200 text-2xl lg:hidden block p-10">Ajoutez les photos que vous désirez 
+    <div
+      class="lg:w-5/6 w-full flex lg:flex-row flex-col items-center lg:pl-20 justify-center"
+    >
+      <div class="lg:hidden flex items-center justify-center flex-col">
+        <LogoPhotolio class="text-4xl mt-12" />
+        <p class="brico-200 text-2xl lg:hidden block p-10">
+          Ajoutez les photos que vous désirez
           <span class="border-b-2 border-yellow-400">rapidement</span>
-          , et en conservant leurs 
+          , et en conservant leurs
           <span class="border-b-2 border-blue-400">qualités</span>
-           !</p>
+          !
+        </p>
       </div>
 
-     
-      <div class="min-h-screen w-full dark:bg-slate-950 bg-gray-50 lg:pl-20 lg:py-20 lg:grid lg:grid-cols-3 lg:gap-5">
-       
-        <label
-          for="dropzone-file"
-          class="flex flex-col items-center justify-center mt-5 h-96 lg:p-0 p-6 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:bg-slate-950 dark:border-gray-600"
-        >
-          <div class="flex flex-col items-center justify-center text-center">
-            <Icon name="ion:cloud-upload-outline" class="size-10 bg-gray-50 dark:bg-slate-950" />
-            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
-              <span class="font-semibold">Click to upload</span> or drag and drop
-            </p>
-            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-          </div>
-          <input
-            id="dropzone-file"
-            @change="uploadPicture"
-            type="file"
-            class="hidden"
-            accept="image/*"
-          />
-        </label>
+      <div
+        class="min-h-screen w-full dark:bg-slate-950 bg-gray-50 lg:pl-20 lg:py-20 lg:grid lg:grid-cols-3 lg:gap-5"
+      >
+        <UploadComponent class="p-6 lg:p-0" @fetchImages="fetchImages" />
 
-       
         <USkeleton
           v-if="loading"
           v-for="index in 9"
           :key="index"
           class="h-96 lg:p-0 p-6 rounded-lg"
         />
-        
-       
+
         <div
           v-if="!loading"
           v-for="image in images"
           v-motion-fade-visible
           :key="image.id"
-          class="h-96 lg:p-0 p-6 bg-gray-50 my-5 dark:bg-slate-950 rounded-lg"
+          class="h-96 lg:p-0 p-6 bg-gray-50 my-5 relative dark:bg-slate-950 rounded-lg"
         >
+          <div
+            class="h-12 w-full bg-white-400 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 absolute z-50 flex items-center rounded-t-lg top-0"
+          >
+            <div class="p-2">
+              <button @click="handleDelete(image.id)">
+                <Icon name="heroicons-solid:trash" class="text-red-400 size-8" />
+              </button>
+            </div>
+          </div>
           <img
             :src="image.url"
             alt="Uploaded Image"
@@ -71,7 +64,7 @@
       </div>
     </div>
   </div>
-  
+
   <div
     v-if="!loading && images.length === 0"
     class="flex items-center w-full h-full justify-center"
@@ -80,15 +73,17 @@
   </div>
 </template>
 
-
-
 <script setup lang="ts">
 import { fetchImages } from "@/utils/imageUtils";
-
+import { deleteImage } from "@/utils/deleteImageUtils";
 interface Image {
   id: string;
   url: string;
 }
+
+const handleDelete = (imageId: string) => {
+  deleteImage(user, imageId, images, supabase);
+};
 
 const images = ref<Image[]>([]);
 const loading = ref(false);
