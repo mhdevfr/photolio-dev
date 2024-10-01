@@ -179,9 +179,13 @@
       <div
         class="lg:absolute lg:w-5/6 w-full lg:h-5/6 h-full bottom-0 rounded-t-lg flex flex-col bg-gray-50 dark:bg-slate-900"
       >
+      
         <div
-          class="h-9 w-full bg-gray-200 dark:bg-slate-700 rounded-t-lg flex items-center justify-start p-4"
+          class="h-9 w-full bg-gray-200 dark:bg-slate-700 relative rounded-t-lg flex items-center justify-start p-4"
         >
+        <button class="absolute top-0 right-0 m-1 mr-2">
+          <Icon name="octicon:share-16"  class="dark:text-gray-50 text-slate-950 size-6" />
+        </button>
           <span class="lg:w-5 lg:h-5 size-3 rounded-full bg-red-400"></span>
           <span
             class="lg:w-5 lg:h-5 size-3 rounded-full mx-2 bg-yellow-400"
@@ -209,11 +213,18 @@
               </p>
             </div>
             <div
-              class="flex lg:flex-col lg:w-1/12 w-full items-center justify-end lg:mr-0 lg:my-0 my-4 h-full"
+              class="flex lg:flex-col lg:w-1/12 w-full items-center justify-around lg:mr-0 lg:my-0 my-4 h-full"
             >
+            <nuxt-link
+              :to="`/photolio/${users[0]?.pseudo}`"
+              class="flex items-center justify-center w-1/2 h-12 px-1 dark:bg-gray-100 shadow-md bg-slate-900 mt-2 rounded-lg text-gray-50 dark:text-slate-950">
+              Your photolio
+            </nuxt-link>
+            <div>
               <Icon name="mdi:email" size="32"></Icon>
               <Icon name="mdi:pinterest" size="32" class="my-2"></Icon>
               <Icon name="mdi:linkedin" size="32" class="lg:mr-0 mr-4"></Icon>
+            </div>
             </div>
           </div>
         </div>

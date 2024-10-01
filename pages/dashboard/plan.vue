@@ -15,7 +15,7 @@
         <div class="mt-12 flex justify-around w-full">
           <div class="w-full h-96 border-dashed border rounded-xl">
             <div
-              v-if="!users[0]?.current_plan"
+              v-if="users[0]?.current_plan"
               class="p-6 w-full text-start h-full"
             >
               <h1 class="text-4xl brico-800">
@@ -71,7 +71,7 @@ const user = useSupabaseUser();
 const users = ref([]);
 const current_plan = ref("");
 
-import { fetchData } from "../../utils/userUtils";
+import { fetchData } from "@/utils/userUtils";
 
 fetchData(client, user, users, current_plan);
 </script>

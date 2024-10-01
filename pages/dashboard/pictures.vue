@@ -38,21 +38,18 @@
           :key="image.id"
           class="h-96 lg:p-0 p-6 bg-gray-50 my-5 relative dark:bg-slate-950 rounded-lg"
         >
-          <div
-            class="h-12 w-full bg-white-400 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-90 absolute z-50 flex items-center rounded-t-lg top-0"
-          >
-            <div class="p-2">
-              <button @click="handleDelete(image.id)">
-                <Icon name="heroicons-solid:trash" class="text-red-400 size-8" />
-              </button>
-            </div>
-          </div>
           <img
             :src="image.url"
             alt="Uploaded Image"
             class="h-full w-full object-cover rounded-lg"
             loading="lazy"
           />
+          
+            <div class="pt-8 lg:pt-4 lg:pl-4 pl-8 absolute top-0 left-0">
+              <button @click="handleDelete(image.id)">
+                <Icon name="heroicons-solid:trash" class="text-red-400 size-8" />
+              </button>
+          </div>
         </div>
       </div>
 
