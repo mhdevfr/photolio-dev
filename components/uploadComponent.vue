@@ -41,7 +41,7 @@ const uploadPicture = async (evt) => {
     });
   } finally {
     uploading.value = false;
-    emit("fetchImages");
+    emit("takeImages");
   }
 };
 

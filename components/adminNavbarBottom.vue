@@ -16,6 +16,12 @@
       Pictures
     </nuxt-link>
     <nuxt-link
+      :to="`/dashboard/plan`"
+      class="text-gray-100 hover:text-gray-300"
+    >
+    Plan
+    </nuxt-link>
+    <nuxt-link
       v-if="!user"
       to="/login"
       class="text-gray-100 hover:text-gray-300"

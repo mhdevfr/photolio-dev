@@ -1,12 +1,18 @@
 <template>
-  <TemplateDarkBtn class="lg:hidden" />
-  <div class="flex-col flex justify-center items-center">
-    <TemplateHero :users="user" :pictures="images" />
+  <div v-if="user?.current_plan">
+    <TemplateDarkBtn class="lg:hidden" />
+    <div class="flex-col flex justify-center items-center">
+      <TemplateHero :users="user" :pictures="images" />
+    </div>
+  </div>
+  <div v-else>
+    <h1>Cet utilisateur n'a pas de plan </h1>
   </div>
 </template>
 
 <script setup lang="ts">
 import { fetchImages } from '@/utils/imageUtils';
+import { fetchData } from '@/utils/userUtils';
 interface User {
   id: string;
   pseudo: string;
@@ -41,6 +47,7 @@ onMounted(async () => {
   }
   user.value = userData;
   fetchImages(user, images, loading, client);
+  fetchData(client, user, users, biography);
 });
 
 

@@ -2,7 +2,7 @@
   <div
     class="flex flex-col items-center w-40 h-full overflow-hidden text-slate-900 bg-gray-100 dark:bg-gray-800 dark:text-slate-100"
   >
-    <nuxt-link to="/" class="flex items-center justify-between w-full mt-3 p-4">
+    <nuxt-link to="/" class="flex items-center justify-center w-full mt-3">
       <LogoPhotolio class="text-2xl"></LogoPhotolio>
     </nuxt-link>
     <div class="w-full px-2">

@@ -20,9 +20,10 @@
       </div>
 
       <div
+      v-auto-animate
         class="min-h-screen w-full dark:bg-slate-950 bg-gray-50 lg:pl-20 lg:py-20 lg:grid lg:grid-cols-3 lg:gap-5"
       >
-        <UploadComponent class="p-6 lg:p-0" @fetchImages="fetchImages" />
+        <UploadComponent class="p-6 lg:p-0" @takeImages="takeImages" />
 
         <USkeleton
           v-if="loading"
@@ -32,7 +33,6 @@
         />
 
         <div
-          v-if="!loading"
           v-for="image in images"
           v-motion-fade-visible
           :key="image.id"
@@ -44,11 +44,11 @@
             class="h-full w-full object-cover rounded-lg"
             loading="lazy"
           />
-          
-            <div class="pt-8 lg:pt-4 lg:pl-4 pl-8 absolute top-0 left-0">
-              <button @click="handleDelete(image.id)">
-                <Icon name="heroicons-solid:trash" class="text-red-400 size-8" />
-              </button>
+
+          <div class="pt-8 lg:pt-4 lg:pl-4 pl-8 absolute top-0 left-0">
+            <button @click="handleDelete(image.id)">
+              <Icon name="heroicons-solid:trash" class="text-red-400 size-8" />
+            </button>
           </div>
         </div>
       </div>
@@ -87,7 +87,10 @@ const loading = ref(false);
 const toast = ref(null);
 const user = useSupabaseUser();
 const supabase = useSupabaseClient();
-emits: ["fetchImages"];
+const takeImages = async () => {
+  fetchImages(user, images, loading, supabase);
+};
+
 onMounted(() => {
   fetchImages(user, images, loading, supabase);
 });

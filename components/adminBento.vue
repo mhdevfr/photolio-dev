@@ -217,10 +217,10 @@
             >
             <nuxt-link
               :to="`/photolio/${users[0]?.pseudo}`"
-              class="flex items-center justify-center w-1/2 h-12 px-1 dark:bg-gray-100 shadow-md bg-slate-900 mt-2 rounded-lg text-gray-50 dark:text-slate-950">
+              class="flex items-center justify-center lg:hidden w-1/2 h-12 px-1 dark:bg-gray-100 shadow-md bg-slate-900 mt-2 rounded-lg text-gray-50 dark:text-slate-950">
               Your photolio
             </nuxt-link>
-            <div>
+            <div class="lg:flex lg:flex-col">
               <Icon name="mdi:email" size="32"></Icon>
               <Icon name="mdi:pinterest" size="32" class="my-2"></Icon>
               <Icon name="mdi:linkedin" size="32" class="lg:mr-0 mr-4"></Icon>
