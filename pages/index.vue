@@ -8,7 +8,7 @@
         <div class="flex flex-col justify-center items-center w-full md:w-5/6">
             <Bento></Bento>
         </div>
-        <div class="w-full">
+        <div id="plan" class="w-full">
             <PricingCards></PricingCards>
         </div>
         <div class="w-full">
@@ -53,6 +53,7 @@ definePageMeta({
 
     *{
         padding: 0;
+        scroll-behavior: smooth;
         margin: 0;
     }
 </style>
