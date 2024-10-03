@@ -71,6 +71,11 @@
 </template>
 
 <script setup lang="ts">
+const images = ref<Image[]>([]);
+const loading = ref(false);
+const toast = ref(null);
+const user = useSupabaseUser();
+const supabase = useSupabaseClient();
 import { fetchImages } from "@/utils/imageUtils";
 import { deleteImage } from "@/utils/deleteImageUtils";
 interface Image {
@@ -82,11 +87,6 @@ const handleDelete = (imageId: string) => {
   deleteImage(user, imageId, images, supabase);
 };
 
-const images = ref<Image[]>([]);
-const loading = ref(false);
-const toast = ref(null);
-const user = useSupabaseUser();
-const supabase = useSupabaseClient();
 const takeImages = async () => {
   fetchImages(user, images, loading, supabase);
 };
