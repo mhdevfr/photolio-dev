@@ -12,13 +12,6 @@
 <script setup lang="ts">
 const user = useSupabaseUser();
 const client = useSupabaseClient();
-const route = useRoute();
-
-watchEffect(() => {
-  if(route){
-    refreshNuxtData();
-  }
-});
 </script>
 
 <style lang="css">
