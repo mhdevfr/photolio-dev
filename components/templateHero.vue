@@ -20,33 +20,44 @@
     </div>
 
     <div class="grid grid-cols-1 gap-4 mt-8 lg:mt-32 lg:grid-cols-2 lg:gap-6">
-      <div v-motion-slide-visible-once-top v-for="picture in pictures" :key="picture.id" class="overflow-hidden aspect-video cursor-pointer rounded-xl relative group z-20">
-        <div class="rounded-xl z-50 opacity-0  group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end">
-          <div class="p-4 space-y-3 text-xl group-hover:translate-y-0 translate-y-4 pb-10 transition duration-300 ease-in-out">
-            <div class="font-bold">Dusk's Phantom</div> 
-            <div class="opacity-60 text-sm">
-              As the sun sets, the ninja emerges from the twilight, bathed in the golden light of the evening.
-            </div>
-          </div>
-        </div>
+      <div
+        v-for="(picture, index) in displayedPictures"
+        :key="picture.id"
+        class="overflow-hidden aspect-video cursor-pointer rounded-xl relative group z-20"
+      >
+        <USkeleton v-if="loading" class="h-96 rounded-xl" />
         <img
+          v-else
           :src="picture.url || '../assets/images/default-photo.jpg'"
           class="w-full h-full object-cover group-hover:scale-110 transition duration-300 ease-in-out rounded-xl"
           alt="User's photo"
         />
-        <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+        <div
+          class="rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 text-white flex items-end"
+        >
+          <div
+            class="p-4 space-y-3 text-xl group-hover:translate-y-0 translate-y-4 pb-10 transition duration-300 ease-in-out"
+          >
+            <div class="font-bold">{{ picture.title || "Untitled" }}</div>
+            <div class="opacity-60 text-sm">
+              {{ picture.description || "No description available" }}
+            </div>
+          </div>
+        </div>
+        <div
+          class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out"
+        >
           <TemplateHoverArrow />
         </div>
       </div>
     </div>
-    
 
     <div class="flex justify-between items-center mt-4">
       <h1 class="text-neutral-900 dark:text-gray-50 font-bold text-3xl">
         Recents work
       </h1>
       <NuxtLink
-        to="#"
+        :to="`${users?.pseudo}/all`"
         class="text-neutral-500 dark:text-gray-50 hover:text-neutral-900 text-2xl font-semibold underline flex items-center"
       >
         View all
@@ -68,9 +79,12 @@
         </h1>
         <h1 class="brico-800 text-2xl mt-8">
           I'm from {{ users?.country }}
-          <Icon :name="`twemoji:flag-${users?.country?.toLowerCase()}`" class="ml-2" />
+          <Icon
+            :name="`twemoji:flag-${users?.country?.toLowerCase()}`"
+            class="ml-2"
+          />
         </h1>
-        
+
         <p
           class="text-neutral-500 dark:text-gray-400 max-w-xl text-lg leading-relaxed"
         >
@@ -92,12 +106,23 @@
       </div>
     </div>
   </section>
-  <TemplateFooter />
+  <TemplateFooter :users="user" />
 </template>
 
 <script setup lang="ts">
+const loading = ref(true);
 const props = defineProps({
   users: Object as PropType<User>,
   pictures: Array as PropType<Picture[]>,
+});
+
+const displayedPictures = computed(() => {
+  return props.pictures.slice(0, 4);
+});
+
+onMounted(() => {
+  setTimeout(() => {
+    loading.value = false;
+  }, 3000);
 });
 </script>

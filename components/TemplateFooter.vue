@@ -54,8 +54,8 @@
           />
         </NuxtLink>
 
-        <NuxtLink
-          to="#"
+        <a 
+        href="#"
           class="inline-flex items-center space-x-2 text-lg font-semibold text-neutral-900 dark:text-gray-50 hover:text-gray-700 lg:text-xl underline"
         >
           <span>Instagram</span>
@@ -65,7 +65,7 @@
             height="24"
             class="dark:text-gray-50 text-gray-900"
           />
-        </NuxtLink>
+      </a>
 
         <NuxtLink
           to="#"
@@ -84,4 +84,6 @@
   </footer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+
+</script>

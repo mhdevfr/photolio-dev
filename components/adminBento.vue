@@ -97,7 +97,7 @@
             </p>
           </div>
 
-          <div class="h-1/5" v-if="users[0]?.biography">
+          <div class="h-1/5 flex justify-between" v-if="users[0]?.biography">
             <button
               v-if="!updateBio"
               class="flex items-center brico-800 dark:hover:bg-green-500 mt-3 hover:bg-green-500 justify-center px-4 py-3 dark:bg-slate-900 dark:text-gray-50 text-slate-900 bg-gray-200 rounded-lg text-pretty text-sm"
@@ -105,6 +105,7 @@
             >
               Change your biography
             </button>
+            <AdminAddNetwork />
             <UButton
               v-if="updateBio"
               class="flex items-center dark:hover:bg-green-500 hover:bg-green-500 justify-center px-4 py-3 dark:bg-slate-900 dark:text-gray-50 text-slate-900 bg-gray-200 rounded-xl text-pretty text-sm"
@@ -166,26 +167,23 @@
     >
       <NuxtLink
         :to="`/photolio/${users[0]?.pseudo}`"
-        class="relative z-40 lg:py-3 lg:px-4 overflow-hidden flex items-center
-        justify-center shadow-2xl transition-all before:absolute before:h-0
-        before:w-0 before:rounded-full before:bg-orange-600 before:duration-500
-        before:ease-out hover:shadow-orange-600 hover:before:h-56
-        hover:before:w-56 dark:bg-gray-50 dark:text-slate-950 text-gray-50
-        bg-slate-900 rounded-lg text-pretty text-sm transition-opacity
-        duration-300 opacity-0 group-hover:opacity-100" >
-        <span class="z-50 lg:block hidden">Explore your photolio</span>
+        class="relative z-40 lg:py-3 lg:px-4 overflow-hidden flex items-center justify-center shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-orange-600 before:duration-500 before:ease-out hover:shadow-orange-600 hover:before:h-56 hover:before:w-56 dark:bg-gray-50 dark:text-slate-950 text-gray-50 bg-slate-900 rounded-lg text-pretty text-sm transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+      >
+        <span class="z-50 lg:block hidden">Explore your photolio </span>
       </NuxtLink>
 
       <div
         class="lg:absolute lg:w-5/6 w-full lg:h-5/6 h-full bottom-0 rounded-t-lg flex flex-col bg-gray-50 dark:bg-slate-900"
       >
-      
         <div
           class="h-9 w-full bg-gray-200 dark:bg-slate-700 relative rounded-t-lg flex items-center justify-start p-4"
         >
-        <button class="absolute top-0 right-0 m-1 mr-2">
-          <Icon name="octicon:share-16"  class="dark:text-gray-50 text-slate-950 size-6" />
-        </button>
+          <button class="absolute top-0 right-0 m-1 mr-2">
+            <Icon
+              name="octicon:share-16"
+              class="dark:text-gray-50 text-slate-950 size-6"
+            />
+          </button>
           <span class="lg:w-5 lg:h-5 size-3 rounded-full bg-red-400"></span>
           <span
             class="lg:w-5 lg:h-5 size-3 rounded-full mx-2 bg-yellow-400"
@@ -215,16 +213,17 @@
             <div
               class="flex lg:flex-col lg:w-1/12 w-full items-center justify-around lg:mr-0 lg:my-0 my-4 h-full"
             >
-            <nuxt-link
-              :to="`/photolio/${users[0]?.pseudo}`"
-              class="flex items-center justify-center lg:hidden w-1/2 h-12 px-1 dark:bg-gray-100 shadow-md bg-slate-900 mt-2 rounded-lg text-gray-50 dark:text-slate-950">
-              Your photolio
-            </nuxt-link>
-            <div class="lg:flex lg:flex-col">
-              <Icon name="mdi:email" size="32"></Icon>
-              <Icon name="mdi:pinterest" size="32" class="my-2"></Icon>
-              <Icon name="mdi:linkedin" size="32" class="lg:mr-0 mr-4"></Icon>
-            </div>
+              <nuxt-link
+                :to="`/photolio/${users[0]?.pseudo}`"
+                class="flex items-center justify-center lg:hidden w-1/2 h-12 px-1 dark:bg-gray-100 shadow-md bg-slate-900 mt-2 rounded-lg text-gray-50 dark:text-slate-950"
+              >
+                Your photolio
+              </nuxt-link>
+              <div class="lg:flex lg:flex-col">
+                <Icon name="mdi:email" size="32"></Icon>
+                <Icon name="mdi:pinterest" size="32" class="my-2"></Icon>
+                <Icon name="mdi:linkedin" size="32" class="lg:mr-0 mr-4"></Icon>
+              </div>
             </div>
           </div>
         </div>
@@ -252,16 +251,6 @@ interface countries {
   continent: string;
   country_name: string;
   iso_code: string;
-}
-
-interface User {
-  id: string;
-  pseudo: string;
-  profil_picture: string;
-  biography: string;
-  country: string;
-  work: string;
-  current_plan: string;
 }
 
 async function addDetails() {
@@ -391,9 +380,6 @@ async function update() {
     refreshNuxtData(profile.value);
   }
 }
-
-
-
 
 fetchData(client, user, users, biographyContent);
 getCountries();

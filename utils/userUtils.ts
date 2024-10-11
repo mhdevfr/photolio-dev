@@ -6,6 +6,9 @@ interface User {
   country: string;
   work: string;
   current_plan: string;
+  instagram_network: string;
+  pinterest_network: string;
+  linkedin_network: string;
 }
 
 export const fetchData = async (
@@ -18,12 +21,11 @@ export const fetchData = async (
 
   const { data, error } = await client
     .from('users')
-    .select('id, pseudo, profil_picture, biography, country, work, current_plan')
+    .select('*')
     .eq('id', user.value.id);  
 
   if (data) {
     users.value = data as User[];  
-    biographyContent.value = users.value[0]?.biography 
   } else {
     console.error(error);
   }

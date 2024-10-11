@@ -2,7 +2,7 @@
   <div v-if="user?.current_plan">
     <TemplateDarkBtn class="lg:hidden" />
     <div class="flex-col flex justify-center items-center">
-      <TemplateHero :users="user" :pictures="images" />
+      <TemplateAll :users="user" :pictures="images" />
     </div>
   </div>
   <div v-else>
@@ -17,7 +17,6 @@ interface User {
   id: string;
   pseudo: string;
   biography: string;
-
 }
 
 interface Photo {
@@ -48,7 +47,7 @@ onMounted(async () => {
   }
   user.value = userData;
   fetchImages(user, images, loading, client);
-  fetchData(client, user);
+  fetchData(client, user, users, biography);
 });
 
 

@@ -1,25 +1,28 @@
 // nuxt.config.js
 export default defineNuxtConfig({
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
+    pageTransition: { name: "page", mode: "out-in" },
   },
   devtools: { enabled: true },
-  devServer: {
-    port: 20100, 
+  vite: {
+    server: {
+      hmr: {
+        clientPort: 3000,
+      },
+    },
   },
   modules: [
-    '@nuxt/ui',
-    'nuxt-icon',
-    '@vueuse/motion/nuxt',
-    '@nuxtjs/supabase',
-    'nuxt-chatgpt',
-    '@formkit/auto-animate/nuxt',
-    'nuxt-marquee',
+    "@nuxt/ui",
+    "nuxt-icon",
+    "@vueuse/motion/nuxt",
+    "@nuxtjs/supabase",
+    "nuxt-chatgpt",
+    "@formkit/auto-animate/nuxt",
+    "nuxt-marquee",
   ],
-  ui: {
-  },
+  ui: {},
   supabase: {
-    redirect: false
+    redirect: false,
   },
-  compatibilityDate: '2024-09-12',
-})
+  compatibilityDate: "2024-09-12",
+});
