@@ -18,7 +18,7 @@ interface User {
   id: string;
   pseudo: string;
   biography: string;
-
+  current_plan: string;
 }
 
 interface Photo {
