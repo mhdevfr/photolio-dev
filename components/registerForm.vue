@@ -74,7 +74,7 @@ const signUp = async () => {
     });
   } else {
     toast.add({
-      title: "Success! Check your email to confirm your account.",
+      title: "Success! Explore photolio as you want !",
     });
   }
 };

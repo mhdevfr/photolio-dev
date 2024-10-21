@@ -6,7 +6,7 @@
   </div>
 </template>
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   user: Object,
   images: Array,
 });

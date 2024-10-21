@@ -15,7 +15,6 @@ export const fetchData = async (
   client: SupabaseClient,
   user: Ref<{ id: string } | null>, 
   users: Ref<User[]>,                
-  biographyContent: Ref<string>      
 ): Promise<void> => {
   if (!user.value) return;  
 

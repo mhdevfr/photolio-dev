@@ -105,7 +105,7 @@
             >
               Change your biography
             </button>
-            <AdminAddNetwork />
+            <AdminAddNetwork :users="user" />
             <UButton
               v-if="updateBio"
               class="flex items-center dark:hover:bg-green-500 hover:bg-green-500 justify-center px-4 py-3 dark:bg-slate-900 dark:text-gray-50 text-slate-900 bg-gray-200 rounded-xl text-pretty text-sm"
@@ -145,7 +145,7 @@
         >
           <span class="lg:text-4xl text-2xl">Explore our plans</span>
           <span class="lg:text-3xl text-xl">Make your choices</span>
-          <span class="lg:text-2xl text-lg">Take the advantages</span>
+          <span class="lg:text-2xl text-lg">Take the advantage</span>
           <Nuxt-Link
             to="/"
             class="text-sm text-center mt-2 lg:w-1/3 w-full py-3 px-2 rounded-lg dark:bg-slate-900 dark:hover:bg-gray-50 hover:dark:text-slate-950 bg-gray-200"
@@ -194,7 +194,7 @@
           <div class="flex w-full lg:flex-row flex-col lg:m-10 m-0">
             <div class="lg:w-1/4 w-full h-full flex justify-center">
               <img
-                src="../assets/images/lugubre.png"
+                :src="users[0]?.avatar"
                 class="w-[200px] h-[200px] rounded-full"
               />
             </div>
@@ -232,6 +232,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { fetchProfilePicture } from "@/utils/fetchProfilPicture";
 import { fetchData } from "@/utils/userUtils";
 const toast = useToast();
 const client = useSupabaseClient();
@@ -246,6 +247,9 @@ const newPseudo = ref<string>("");
 const newWork = ref<string>("");
 const newCountry = ref<string>("");
 const newBiography = ref<string>("");
+
+fetchProfilePicture(user.value.id);
+console.log(user.value.id);
 
 interface countries {
   continent: string;
@@ -381,6 +385,7 @@ async function update() {
   }
 }
 
-fetchData(client, user, users, biographyContent);
+fetchData(client, user, users);
 getCountries();
 </script>
+<style lang="css" scoped></style>

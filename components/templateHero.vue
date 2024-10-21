@@ -11,6 +11,7 @@
       >
         {{ users?.work || "No work description available" }}
       </p>
+
       <div
         class="flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-4 lg:justify-center"
       >
@@ -54,14 +55,14 @@
 
     <div class="flex justify-between items-center mt-4">
       <h1 class="text-neutral-900 dark:text-gray-50 font-bold text-3xl">
-        Recents work
+        Recent works
       </h1>
       <NuxtLink
-        :to="`${users?.pseudo}/all`"
+        :to="`/photolio/${users?.pseudo}/all`"
         class="text-neutral-500 dark:text-gray-50 hover:text-neutral-900 text-2xl font-semibold underline flex items-center"
       >
         View all
-        <TemplateArrow></TemplateArrow>
+        <TemplateArrow />
       </NuxtLink>
     </div>
 
@@ -106,10 +107,27 @@
       </div>
     </div>
   </section>
-  <TemplateFooter :users="user" />
+  <TemplateFooter :users="users" />
 </template>
 
 <script setup lang="ts">
+interface User {
+  id: string;
+  pseudo: string;
+  work?: string;
+  country?: string;
+  biography?: string;
+  avatar?: string;
+}
+
+interface Picture {
+  id: string;
+  url: string;
+  title?: string;
+  description?: string;
+}
+
+
 const loading = ref(true);
 const props = defineProps({
   users: Object as PropType<User>,

@@ -4,14 +4,15 @@
     <h1
       class="text-slate-900 w-4/5 dark:text-gray-100 font-raleway text-center lg:text-7xl text-5xl font-bold mt-11 mb-6 brico-800"
     >
-      Design Your Portfolio at Lightning
+      Make Your Portfolio at Lightning
       <span class="text-yellow-300">Speed</span>
     </h1>
     <p
       class="text-slate-900 dark:text-gray-100 opacity-60 text-center font-raleway lg:text-2xl text-lg font-normal w-4/6 brico-200"
     >
       Showcase your creativity with a stunning portfolio thats ready in no time,
-      without compromising on quality or style used by {{ count }} users.
+      without compromising on quality or style used by
+      <span>1{{ totalUsers }}</span> users.
     </p>
     <heroButton />
     <Transition name="bounce">
@@ -23,4 +24,31 @@
     </Transition>
   </div>
 </template>
-<script setup lang="ts"></script>
+
+<script setup lang="ts">
+const client = useSupabaseClient();
+const totalUsers = ref(0);
+const toast = useToast();
+
+async function countUsers() {
+  const { count, error } = await client
+    .from("users")
+    .select("*", 
+    { count: "exact" });
+
+  console.log("Total Users fetched:", count);
+
+  if (count !== null && count >= 0) {
+    totalUsers.value = count;
+  } else {
+    toast.add({
+      title: "Error",
+      description: error ? error.message : "Invalid count value",
+    });
+  }
+}
+
+onMounted(() => {
+  countUsers();
+});
+</script>

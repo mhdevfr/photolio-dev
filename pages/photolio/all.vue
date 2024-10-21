@@ -6,17 +6,18 @@
     </div>
   </div>
   <div v-else>
-    <h1>Cet utilisateur n'a pas de plan </h1>
+    <h1>Cet utilisateur n'a pas de plan</h1>
   </div>
 </template>
-
 <script setup lang="ts">
-import { fetchImages } from '@/utils/imageUtils';
-import { fetchData } from '@/utils/userUtils';
+import { fetchImages } from "@/utils/imageUtils";
+import { fetchData } from "@/utils/userUtils";
+
 interface User {
   id: string;
   pseudo: string;
   biography: string;
+  current_plan: string; 
 }
 
 interface Photo {
@@ -30,10 +31,11 @@ interface Photo {
 const client = useSupabaseClient();
 const route = useRoute();
 const slug = route.params.slug as string;
+const users = ref<User[]>([]);
 const user = ref<User | null>(null);
-const photos = ref<Photo[]>([]);
 const images = ref<{ id: string; url: string }[]>([]);
 const loading = ref(false);
+
 onMounted(async () => {
   const { data: userData, error: userError } = await client
     .from("users")
@@ -42,14 +44,13 @@ onMounted(async () => {
     .single<User>();
 
   if (userError) {
-    console.error(userError);
+    console.error("Erreur utilisateur : ", userError);
     return;
   }
+
   user.value = userData;
+
   fetchImages(user, images, loading, client);
-  fetchData(client, user, users, biography);
+  fetchData(client, user, users);
 });
-
-
-
 </script>
