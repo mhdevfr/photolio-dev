@@ -1,5 +1,6 @@
 <template>
   <section class="mt-32 mx-auto max-w-screen-xl pb-4 px-4">
+    <TemplateMobileNavbar />
     <div class="space-y-6 flex-1">
       <h1
         class="text-neutral-900 dark:text-gray-50 font-bold text-5xl md:text-6xl lg:text-8xl lg:text-center"

@@ -6,15 +6,20 @@
         </div>
       </div>
   
-      <div class="social-card bg-gradient-to-br from-blue-500 via-blue-600 to-blue-800">
+      
+      <div class="social-card bg-gradient-to-br from-red-300 via-red-500 to-red-700">
         <div class="icon-container">
-          <Icon name="ic:baseline-facebook" width="48" height="48" style="color: white;" />
+          <Icon name="mdi:pinterest" width="48" height="48"  style="color: white" />
         </div>
       </div>
   
-      <div class="social-card bg-gradient-to-br from-blue-400 to-gray-300">
+      <div class="social-card bg-gradient-to-br from-blue-700 to-blue-300">
         <div class="icon-container">
-            <Icon name="ant-design:behance-circle-filled" width="48" height="48"  style="color: white" />
+          <Icon
+          name="ion:social-linkedin"
+          size="48"
+          class="dark:text-gray-50 text-gray-950"
+        />
         </div>
       </div>
 

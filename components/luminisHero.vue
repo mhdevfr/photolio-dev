@@ -21,14 +21,12 @@
 
         <div class="flex items-center">
           <h1 class="text-4xl font-extrabold leading-tight text-dark-grey-900 lg:text-7xl">
-            Kaito Yamato
+            {{ users?.pseudo }}
           </h1>
         </div>
 
         <p class="mt-6 mb-10 text-base font-regular leading-7 lg:text-xl text-dark-grey-600 xl:w-3/4">
-          Hi I’m Kaito, I’m a Japanese photographer. I’ve worked for most of the
-          popular newspapers as a photographer for 25 years, giving meaning to
-          my wonderful life.
+          {{ users?.biography }}
         </p>
 
         <div class="flex flex-col items-center space-x-4 lg:flex-row">
@@ -55,7 +53,7 @@
     </div>
 
     <div>
-      <LuminisPhoto />
+      <LuminisPhoto  :users="users" :pictures="pictures" />
     </div>
 
     <div>
@@ -71,3 +69,35 @@
 </template>
 
 
+<script setup lang="ts">
+interface User {
+  id: string;
+  pseudo: string;
+  work?: string;
+  country?: string;
+  biography?: string;
+  avatar?: string;
+}
+
+interface Picture {
+  id: string;
+  url: string;
+  title?: string;
+  description?: string;
+}
+
+
+const loading = ref(true);
+const props = defineProps({
+  users: Object as PropType<User>,
+  pictures: Array as PropType<Picture[]>,
+});
+
+onMounted(() => {
+  setTimeout(() => {
+    loading.value = false;
+  }, 3000);
+});
+
+console.log(props.users);
+</script>
