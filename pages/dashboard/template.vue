@@ -126,7 +126,15 @@
   choosen_template.value = users.value[0]?.choosen_template || "";
   
   watch(choosen_template, (newVal) => {
-    console.log("New template chosen:", newVal);
+    if (newVal) {
+      client
+        .from('users')
+        .update({ choosen_template: newVal })
+        .eq('id', user.value?.id)
+        .then(() => {
+          users.value[0].choosen_template = newVal;
+        });
+    }
   });
   </script>
   

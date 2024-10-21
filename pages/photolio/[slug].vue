@@ -1,8 +1,8 @@
 <template>
   <div v-if="user?.current_plan">
     <div class="flex-col flex justify-center items-center">
-     <!-- <TemplateHero :users="user" :pictures="images" /> -->
-      <LuminisHero :users="user" :pictures="images" />
+     <TemplateHero v-if="user?.choosen_template === 'simple_template'" :users="user" :pictures="images" /> 
+      <LuminisHero v-else :users="user" :pictures="images" />
     </div>
   </div>
   <div v-else>
@@ -18,6 +18,7 @@ interface User {
   pseudo: string;
   biography: string;
   current_plan: string;
+  choosen_template: string;
 }
 
 interface Photo {
