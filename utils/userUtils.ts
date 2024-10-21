@@ -9,6 +9,7 @@ interface User {
   instagram_network: string;
   pinterest_network: string;
   linkedin_network: string;
+  choosen_template: string;
 }
 
 export const fetchData = async (

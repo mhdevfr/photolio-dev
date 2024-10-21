@@ -35,15 +35,13 @@
       <div
         class="flex flex-col items-center w-full mt-2 border-t border-gray-700 dark:border-gray-500"
       >
-        <a
+        <NuxtLink
+          :to="`/dashboard/template`"
           class="relative flex items-center w-full h-12 px-3 mt-2 rounded hover:text-white hover:bg-indigo-700 dark:hover:bg-indigo-500"
         >
-          <Icon name="mdi:message" />
-          <span class="ml-2 text-sm font-medium brico-800">Support</span>
-          <span
-            class="absolute top-0 left-0 w-2 h-2 mt-2 ml-2 bg-indigo-500 rounded-full dark:bg-indigo-400"
-          ></span>
-        </a>
+        <Icon name="icon-park-solid:page-template" />
+          <span class="ml-2 text-sm font-medium brico-800">Template</span>
+      </NuxtLink>
         <darkButton />
       </div>
     </div>
