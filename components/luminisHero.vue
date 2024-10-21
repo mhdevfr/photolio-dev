@@ -7,7 +7,7 @@
   </div>
 
   <div class="relative container mx-auto flex flex-col">
-    <LuminisNavbar />
+    <LuminisNavbar :users="users"/>
 
     <div 
       class="my-auto px-4 mb-8 mt-24 md:mt-36 lg:mt-36 w-full grid-cols-1 text-gray-50 

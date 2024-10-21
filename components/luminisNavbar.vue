@@ -1,7 +1,7 @@
 <template>
   <nav class="flex items-center justify-between py-6 px-4 md:px-4 lg:px-4">
     
-    <h1 class="text-3xl font-bold text-gray-100">Kaito.</h1>
+    <h1 class="text-3xl font-bold text-gray-100">{{ users?.pseudo }}.</h1>
 
     
     <button 
@@ -62,7 +62,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+
+interface User {
+  id: string;
+  pseudo: string;
+  work?: string;
+  country?: string;
+  biography?: string;
+  avatar?: string;
+}
+
+interface Picture {
+  id: string;
+  url: string;
+  title?: string;
+  description?: string;
+}
+
+const props = defineProps({
+  users: Object as PropType<User>,
+  pictures: Array as PropType<Picture[]>,
+});
 
 
 const isMenuOpen = ref(false);
