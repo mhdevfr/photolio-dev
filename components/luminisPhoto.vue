@@ -1,5 +1,5 @@
 <template>
-  <div class="my-16 mt-64 container mx-auto px-4">
+  <div class="my-16 mt-18 md:mt-32 lg:mt-64 container mx-auto px-4">
     <h1 class="text-5xl font-semibold text-gray-100 mb-4">
       My Gallery
     </h1>
