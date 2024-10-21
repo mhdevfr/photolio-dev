@@ -1,50 +1,48 @@
 <template>
-  <div 
-  class="absolute -top-[400px] -left-[150px] w-[600px] h-[600px] 
-         bg-gradient-to-br from-white/40 to-transparent 
-         rounded-full blur-3xl overflow-hidden">
-</div>
+  <div id="my-hero"
+    class="absolute -top-[100px] -left-[100px] w-[300px] h-[300px] 
+           md:w-[400px] md:h-[300px] lg:w-[600px] lg:h-[300px]
+           bg-gradient-to-br from-white/40 to-transparent 
+           rounded-full blur-3xl overflow-hidden">
+  </div>
 
   <div class="relative container mx-auto flex flex-col">
-
-    <LuminisNavbar />
+    <LuminisNavbar :users="users"/>
 
     <div 
-      class="my-auto mb-8 mt-36 w-full grid-cols-1 justify-center text-gray-50 
-             md:flex md:gap-5 lg:grid lg:grid-cols-2">
+      class="my-auto px-4 mb-8 mt-24 md:mt-36 lg:mt-36 w-full grid-cols-1 text-gray-50 
+             md:flex md:gap-5 lg:grid lg:grid-cols-2"> 
+             
       <div 
-        class="col-span-1 flex flex-col justify-center text-center 
+        class="col-span-1 flex flex-col space-y-6 
                md:w-3/5 lg:w-full lg:justify-center lg:text-left">
-        <div class="mb-4 flex items-center justify-center lg:justify-start">
+        <div class="lg:justify-start">
           <BadgePricing />
         </div>
 
-        <div class="flex items-center">
-          <h1 class="text-4xl font-extrabold leading-tight text-dark-grey-900 lg:text-7xl">
-            {{ users?.pseudo }}
-          </h1>
-        </div>
+        <h1 class="text-5xl font-extrabold leading-tight text-dark-grey-900 lg:text-7xl">
+          {{ users?.pseudo }}
+        </h1>
 
-        <p class="mt-6 mb-10 text-base font-regular leading-7 lg:text-xl text-dark-grey-600 xl:w-3/4">
+        <p class="text-base font-regular leading-7 text-dark-grey-600 lg:text-xl xl:w-3/4">
           {{ users?.biography }}
         </p>
 
-        <div class="flex flex-col items-center space-x-4 lg:flex-row">
+        <div class="flex flex-col gap-y-4 md:flex-row md:gap-x-4 items-stretch">
           <button 
-            class="flex items-center rounded-xl bg-purple-blue-500 px-8 py-5 
-                   text-xl font-medium bg-slate-50 text-black transition 
-                   hover:bg-purple-blue-600 focus:bg-purple-blue-700">
+            class="w-full md:w-auto rounded-xl bg-gray-200 px-8 py-5 
+                   text-xl font-medium text-black transition">
             My photos
           </button>
           <button 
-            class="flex items-center rounded-xl px-8 py-5 text-xl font-medium 
-                   border border-slate-50/40 text-dark-grey-900">
+            class="w-full md:w-auto rounded-xl border border-slate-50/40 
+                   px-8 py-5 text-xl font-medium text-dark-grey-900">
             Contact me
           </button>
         </div>
       </div>
 
-      <div class="col-span-1 flex items-center justify-center lg:justify-end">
+      <div class="col-span-1 hidden md:flex items-center justify-center lg:justify-end">
         <img 
           class="w-4/6 rounded-full shadow-md" 
           src="../assets/images/pp.png"
@@ -53,7 +51,7 @@
     </div>
 
     <div>
-      <LuminisPhoto  :users="users" :pictures="pictures" />
+      <LuminisPhoto :users="users" :pictures="pictures" />
     </div>
 
     <div>
@@ -61,13 +59,10 @@
     </div>
 
     <div>
-      <luminisFooter />
+      <LuminisFooter />
     </div>
-
-  
   </div>
 </template>
-
 
 <script setup lang="ts">
 interface User {
@@ -85,7 +80,6 @@ interface Picture {
   title?: string;
   description?: string;
 }
-
 
 const loading = ref(true);
 const props = defineProps({

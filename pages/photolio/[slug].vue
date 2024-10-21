@@ -1,6 +1,5 @@
 <template>
   <div v-if="user?.current_plan">
-    <TemplateDarkBtn class="lg:hidden" />
     <div class="flex-col flex justify-center items-center">
      <!-- <TemplateHero :users="user" :pictures="images" /> -->
       <LuminisHero :users="user" :pictures="images" />
