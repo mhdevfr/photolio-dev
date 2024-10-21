@@ -1,5 +1,5 @@
 <template>
-  <div 
+  <div id="my-hero"
     class="absolute -top-[100px] -left-[100px] w-[300px] h-[300px] 
            md:w-[400px] md:h-[300px] lg:w-[600px] lg:h-[300px]
            bg-gradient-to-br from-white/40 to-transparent 

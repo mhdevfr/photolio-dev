@@ -1,7 +1,7 @@
 <template>
     <section>
       <div class="container px-6 py-12 mx-auto">
-        <div>
+        <div id="my-contact" >
           <h1 class="mt-2 text-3xl font-semibold text-gray-100 md:text-4xl lg:text-5xl">
             Contact me 
           </h1>
