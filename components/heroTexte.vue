@@ -36,16 +36,6 @@ onMounted(async () => {
     .select("id", 
     { count: "exact" }
   );
-
-  console.log("Total Users fetched:", count);
-
-  if (count !== null && count >= 0) {
-    totalUsers.value = count;
-  } else {
-    toast.add({
-      title: "Error",
-      description: error ? error.message : "Invalid count value",
-    });
-  }
+  totalUsers.value = count;
 });
 </script>
