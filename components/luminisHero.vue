@@ -1,8 +1,10 @@
 <template>
   <div
     id="my-hero"
-    class="absolute -top-[100px] -left-[100px] w-[300px] h-[300px] md:w-[400px] md:h-[300px] lg:w-[600px] lg:h-[300px] bg-gradient-to-br from-white/40 to-transparent rounded-full blur-3xl overflow-hidden"
-  ></div>
+    class="absolute -top-[100px] -left-[100px] w-[300px] h-[300px] 
+           md:w-[400px] md:h-[300px] lg:w-[600px] lg:h-[300px]
+           bg-gradient-to-br from-white/40 to-transparent 
+           rounded-full blur-3xl overflow-hidden"></div>
 
   <div class="relative container mx-auto flex flex-col">
     <LuminisNavbar :users="users" />
@@ -64,6 +66,14 @@
   </div>
 </template>
 
+<style lang="css" scoped>
+#my-hero {
+  filter: blur(30px);
+  -webkit-filter: blur(30px);
+  will-change: transform, filter;
+}
+
+</style>
 <script setup lang="ts">
 const profilePictureUrl = ref<string | null>(null);
 interface User {
