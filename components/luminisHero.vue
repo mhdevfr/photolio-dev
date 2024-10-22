@@ -57,11 +57,11 @@
     </div>
 
     <div>
-      <LuminisContact />
+      <LuminisContact :users="users" />
     </div>
 
     <div>
-      <LuminisFooter />
+      <LuminisFooter :users="users" />
     </div>
   </div>
 </template>
@@ -83,6 +83,7 @@ interface User {
   country?: string;
   biography?: string;
   avatar?: string;
+  email?: string;
 }
 
 interface Picture {
