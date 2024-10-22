@@ -31,19 +31,22 @@ const totalUsers = ref(0);
 const toast = useToast();
 
 async function countUsers() {
-  const { count, error } = await client
-    .from("users")
-    .select("*", 
-    { count: "exact" });
-
-  console.log("Total Users fetched:", count);
-
-  if (count !== null && count >= 0) {
-    totalUsers.value = count;
-  } else {
+  try {
+    const { count, error } = await client
+      .from("users")
+      .select("id", { count: "exact" });
+    if (error) {
+      throw new Error(error.message);
+    }
+    if (count !== null && count >= 0) {
+      totalUsers.value = count;
+    } else {
+      throw new Error("pas bon count");
+    }
+  } catch (err) {
     toast.add({
       title: "Error",
-      description: error ? error.message : "Invalid count value",
+      description: err.message,
     });
   }
 }
@@ -52,3 +55,4 @@ onMounted(() => {
   countUsers();
 });
 </script>
+
