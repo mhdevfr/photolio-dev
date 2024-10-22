@@ -5,19 +5,26 @@
     <div
       class="grid h-full w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-8 gap-4"
     >
-    <div
-    class="col-span-1 md:col-span-2 lg:col-span-3 row-span-8 rounded-3xl bg-gray-50 flex flex-col justify-between overflow-hidden"
-  >
-    <div>
-      <TypewriterText></TypewriterText>
-    </div>
-    <div
-      class="flex justify-start items-end flex-wrap space-x-6 relative mt-auto mb-0"
-    >
-      <img src="../assets/images/examplePhotolio.svg" class="w-3/4 z-50 " />
-      <img src="../assets/images/iphonePhotolio.svg" class="w-1/6 absolute right-16 rotate-12 top-0 z-50" />
-    </div>
-  </div>
+      <div
+        class="col-span-1 md:col-span-2 lg:col-span-3 row-span-8 rounded-3xl bg-gray-50 flex flex-col justify-between overflow-hidden"
+      >
+        <div>
+          <TypewriterText></TypewriterText>
+        </div>
+        <div
+          class="flex justify-start items-end flex-wrap space-x-6 relative mt-auto mb-0"
+        >
+          <img
+            src="../assets/images/landing.png"
+            class="hidden md:flex md:w-full lg:w-full z-50"
+          />
+          <img
+            src="../assets/images/iphone.png"
+            class="w-2/6 h-auto max-h-[70vh] object-contain rotate-15 flex right-0 bottom-0 z-50 md:hidden"
+            style="max-width: 100%;"
+          />
+        </div>
+      </div>
 
       <div
         class="row-span-12 col-span-1 md:col-span-2 lg:col-span-2 rounded-3xl flex justify-center flex-col bg-gray-100"

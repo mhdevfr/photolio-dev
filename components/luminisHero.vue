@@ -17,7 +17,7 @@
         class="col-span-1 flex flex-col space-y-6 
                md:w-3/5 lg:w-full lg:justify-center lg:text-left">
         <div class="lg:justify-start">
-          <BadgePricing />
+          <available />
         </div>
 
         <h1 class="text-5xl font-extrabold leading-tight text-dark-grey-900 lg:text-7xl">
