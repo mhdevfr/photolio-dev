@@ -33,8 +33,9 @@ const toast = useToast();
 onMounted(async () => {
   const { count, error } = await client
     .from("users")
-    .select("*", 
-    { count: "exact" });
+    .select("id", 
+    { count: "exact" }
+  );
 
   console.log("Total Users fetched:", count);
 
