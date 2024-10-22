@@ -2,7 +2,7 @@
   <div class="container mx-auto lg:mt-0 mt-64 text-gray-900 antialiased">
     <main class="mx-8 my-16">
       <div class="text-center">
-        <BadgePricing class="mb-4"></BadgePricing>
+        <PricingBadge class="mb-4"></PricingBadge>
         <h1
           class="mb-4 text-2xl font-normal md:text-3xl lg:text-5xl text-white brico-800"
         >
