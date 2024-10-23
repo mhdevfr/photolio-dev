@@ -2,9 +2,9 @@
   <div>
     <div
       v-if="user"
-      class="h-full w-full flex items-end justify-center bg-gray-50 dark:bg-slate-950 text-slate-950 dark:text-gray-50"
+      class="min-h-screnn h-full w-full flex items-start justify-center bg-gray-50 dark:bg-slate-950 text-slate-950 dark:text-gray-50"
     >
-      <adminSidebar class="w-1/6 h-screen fixed left-0 top-0 lg:block hidden" />
+      <adminSidebar class="w-1/6 left-0 top-0 fixed lg:block hidden" />
       <AdminNavbarBottom class="lg:hidden block" />
       <div
         class="lg:w-5/6 w-full flex lg:flex-col flex-col items-center lg:pl-20 justify-center"
