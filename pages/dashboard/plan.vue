@@ -10,9 +10,9 @@
       <div
         class="w-full h-screen flex flex-col items-center bg-gray-50 dark:bg-slate-900"
       >
-        <div class="text-3xl mt-12 brico-800">
+        <div class="text-2xl lg:text-4xl mt-12 brico-800">
           <h1 class="text-4xl brico-800">Ours differents plans</h1>
-          <p class="text-2xl brico-200 text-center">
+          <p class="text-xl md:text:2xl brico-200 opacity-85 text-center">
             Choose the plan you need take the control of your art
           </p>
         </div>

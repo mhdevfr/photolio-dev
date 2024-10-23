@@ -1,6 +1,6 @@
 <template>
   <div class="fixed bottom-4 left-1/2 -translate-x-1/2 bg-gray-500 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border border-gray-100/30
-  rounded-full shadow-lg p-4 w-10/12 max-w-2xl flex justify-around items-center z-50 lg:hidden md:hidden">
+  rounded-full shadow-lg p-4 w-10/12 max-w-2xl flex justify-around items-center z-50 lg:hidden md:flex">
     <nuxt-link to="/" class="text-gray-100 hover:text-gray-300">
       Home
     </nuxt-link>

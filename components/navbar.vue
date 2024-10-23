@@ -5,12 +5,12 @@
     </div>
     <div class="w-2/3 sm:w-5/6 justify-center items-center m-4 sm:m-8 brico-200">
       <ul
-        class="hidden sm:flex flex-col sm:flex-row justify-end space-y-4 sm:space-y-0 lg:space-x-10 sm:space-x-6"
+        class="hidden sm:hidden md:hidden lg:flex flex-col sm:flex-row justify-end space-y-4 sm:space-y-0 lg:space-x-10 sm:space-x-6"
       >
         <li>
           <nuxt-link
             to="/"
-            class="px-4 sm:px-10 py-2 underline-offset-4 underline decoration-sky-500"
+            class="px-4 sm:px-10 py-2 underline-offset-4 underline decoration-gray-100"
             >Home</nuxt-link
           >
           <nuxt-link to="/#plan" class="px-4 sm:px-10 py-2">Plans</nuxt-link>

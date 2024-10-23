@@ -7,7 +7,7 @@
           A question or comment ?
         </h2>
         <p
-          class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl"
+          class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400/90 sm:text-xl"
         >
           If you have any questions, ideas for improving the to-do list, or any
           other feedback, we'd love to hear from you.

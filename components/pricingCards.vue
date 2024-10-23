@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto lg:mt-0 mt-64 text-gray-900 antialiased">
+  <div class="container mx-auto lg:mt-0 mt-8 lg:mt-24 text-gray-900 antialiased">
     <main class="mx-8 my-16">
       <div class="text-center">
         <PricingBadge class="mb-4"></PricingBadge>
