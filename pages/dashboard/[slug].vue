@@ -4,7 +4,7 @@
   >
   <adminSidebar class="w-1/6 left-0 top-0 fixed lg:block hidden" />
   <AdminNavbarBottom class="lg:hidden block" />
-    <div class="flex flex-col ml-32 items-center h-full w-full justify-center">
+    <div class="flex flex-col lg:ml-32 items-center h-full w-full justify-center">
       
       <adminBento />
     </div>
