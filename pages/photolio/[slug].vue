@@ -49,8 +49,8 @@ onMounted(async () => {
   }
   user.value = userData;
   fetchImages(user, images, loading, client);
-  fetchData(client, user);
 });
+
 
 
 

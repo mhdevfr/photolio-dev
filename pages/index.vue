@@ -25,7 +25,8 @@
 </template>
 
 
-<script setup>
+<script setup lang="ts">
+const client = useSupabaseClient();
 definePageMeta({
   middleware: ['reset-color-mod'],
 });

@@ -1,46 +1,37 @@
-import { ref } from 'vue';
-
 export const fetchProfilePicture = async (userId: string) => {
-  const supabase = useSupabaseClient();
+  const client = useSupabaseClient();
   const images = ref([]);
 
   try {
-    const { data, error } = await supabase.storage
+    const { data: fileList, error: listError } = await client.storage
       .from("pictures")
       .list(`${userId}/profil_picture`, {
-        limit: 1, 
+        limit: 1,
         offset: 0,
       });
-
-    if (error) {
-      throw error;
+    if (listError) {
+      console.error("Error listing profile picture:", listError.message);
+      throw listError;
     }
+    if (!fileList || fileList.length === 0) {
+      throw new Error("No profile picture found.");
+    }
+    const { data: signedUrlData, error: signedUrlError } = await client.storage
+      .from("pictures")
+      .createSignedUrl(`${userId}/profil_picture/${fileList[0].name}`, 60 * 60); // 1 heure
 
-    images.value = await Promise.all(
-      data.map(async (file) => {
-        const { data: signedUrlData, error: signedUrlError } =
-          await supabase.storage
-            .from("pictures")
-            .createSignedUrl(`${userId}/profil_picture/${file.name}`, 60 * 60);
-
-        if (signedUrlError) {
-          console.error(signedUrlError.message);
-          return null;
-        }
-
-        return {
-          id: file.name,
-          url: signedUrlData.signedUrl,
-        };
-      })
-    );
-
-    images.value = images.value.filter((img) => img !== null);
-
+    if (signedUrlError) {
+      console.error("Error creating signed URL:", signedUrlError.message);
+      throw signedUrlError;
+    }
+    images.value = [{
+      id: fileList[0].name,
+      url: signedUrlData.signedUrl,
+    }];
+    console.log("images", images.value);
   } catch (error) {
-    console.error("Error fetching profile picture:", error);
+    console.error("test", error);
     throw error;
   }
-
-  return images;
+  return images.value[0];
 };

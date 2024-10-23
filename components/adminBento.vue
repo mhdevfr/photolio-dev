@@ -193,10 +193,7 @@
         <div class="flex w-full flex-col lg:mt-0 mt-8 lg:flex-row items-center">
           <div class="flex w-full lg:flex-row flex-col lg:m-10 m-0">
             <div class="lg:w-1/4 w-full h-full flex justify-center">
-              <img
-                :src="users[0]?.avatar"
-                class="w-[200px] h-[200px] rounded-full"
-              />
+              <ProfilPicturePseudo class="" :users="users" />
             </div>
             <div
               class="flex flex-col lg:w-3/5 w-full lg:mt-0 mt-8 items-center justify-center"
@@ -248,8 +245,6 @@ const newWork = ref<string>("");
 const newCountry = ref<string>("");
 const newBiography = ref<string>("");
 
-fetchProfilePicture(user.value.id);
-console.log(user.value.id);
 
 interface countries {
   continent: string;

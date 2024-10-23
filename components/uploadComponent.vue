@@ -29,7 +29,6 @@ const uploadPicture = async (evt) => {
 
     if (uploadError) throw uploadError;
 
-
     toast.add({
       title: "Success",
       description: "Image uploaded successfully",
@@ -41,26 +40,29 @@ const uploadPicture = async (evt) => {
     });
   } finally {
     uploading.value = false;
-    emit("takeImages");
   }
 };
-
 </script>
 
-
 <template>
-  <div class="flex lg:flex-row flex-col lg:items-start mt-5 items-center justify-center w-full">
-    
+  <div
+    class="flex lg:flex-row flex-col lg:items-start mt-5 items-center justify-center w-full"
+  >
     <label
       for="dropzone-file"
       class="flex flex-col items-center justify-center w-full h-96 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-slate-950 hover:bg-gray-100 dark:hover:bg-slate-900 dark:border-gray-600 dark:hover:border-gray-500"
     >
       <div class="flex flex-col items-center justify-center text-center h-full">
-        <Icon name="ion:cloud-upload-outline" class="size-10 bg-gray-50 dark:bg-slate-950" />
+        <Icon
+          name="ion:cloud-upload-outline"
+          class="size-10 bg-gray-50 dark:bg-slate-950"
+        />
         <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
           <span class="font-semibold">Click to upload</span> or drag and drop
         </p>
-        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or WEBP (MAX. 15MB)</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400">
+          SVG, PNG, JPG or WEBP (MAX. 15MB)
+        </p>
       </div>
       <input
         id="dropzone-file"
@@ -75,7 +77,7 @@ const uploadPicture = async (evt) => {
    
     <div v-if="uploading" class="rounded-xl h-96 w-full lg:p-0 p-8 flex items-center justify-center bg-gray-50 dark:bg-slate-900">
       <button type="button" class="bg-indigo-500 flex py-2 px-2 rounded-lg" disabled>
-        <Icon name="heroicons-solid:upload" class="animate-bounce bg-transparent" size="24" />
+        <Icon name="heroicons-solid:upload" class="animate-bounce" size="24" />
         Uploading ...
       </button>
     </div>

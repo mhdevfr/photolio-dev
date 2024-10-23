@@ -94,18 +94,8 @@
           {{ users?.biography || "No biography available" }}
         </p>
       </div>
-      <div class="w-2/5 h-full">
-        <img
-          v-if="users?.avatar"
-          :src="users?.avatar"
-          class="w-full lg:w-40 h-40 rounded-full mx-auto"
-          alt="User's avatar"
-        />
-        <img
-          src="../assets/images/marquee2.png"
-          class="w-full lg:w-40 h-auto rounded-full mx-auto"
-          v-else
-        />
+      <div class="w-full flex items-center h-full">
+        <ProfilPicturePseudo :users="users" />
       </div>
     </div>
   </section>
