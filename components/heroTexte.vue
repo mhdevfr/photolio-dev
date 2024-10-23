@@ -12,7 +12,7 @@
     >
       Showcase your creativity with a stunning portfolio thats ready in no time,
       without compromising on quality or style used by
-      <span>1{{ totalUsers }}</span> users.
+      many users.
     </p>
     <heroButton />
     <Transition name="bounce">
@@ -26,16 +26,4 @@
 </template>
 
 <script setup lang="ts">
-const client = useSupabaseClient();
-const totalUsers = ref(0);
-const toast = useToast();
-
-onMounted(async () => {
-  const { count, error } = await client
-    .from("users")
-    .select("id", 
-    { count: "exact" }
-  );
-  totalUsers.value = count;
-});
 </script>

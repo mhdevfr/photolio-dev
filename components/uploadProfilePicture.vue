@@ -83,6 +83,7 @@ const fetchProfilPicture = async () => {
       })
     );
     images.value = images.value.filter((img) => img !== null);
+    console.log(images.url);
   } catch (error) {
     toast.add({
       title: "Erreur lors de la récupération des images",

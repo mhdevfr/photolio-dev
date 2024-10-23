@@ -4,7 +4,7 @@
   >
     <div class="flex items-center lg:flex-row flex-col justify-center">
       <div
-        class="h-5/6 w-full lg:items-start items-center bg-gray-100 flex lg:flex-row flex-col justify-around dark:bg-slate-800 dark:shadow-[0px_0px_10px_0px_#f7fafc] shadow-[0px_0px_10px_0px_#1a202c] lg:mr-8 rounded-xl lg:p-10"
+        class="h-5/6 w-full lg:items-start items-center bg-gray-100 flex lg:flex-row flex-col justify-around dark:bg-slate-800 dark:shadow-[0px_0px_3px_0px_#f7fafc] shadow-[0px_0px_3px_0px_#1a202c] lg:mr-8 rounded-xl lg:p-10"
       >
         <div
           class="text-slate-900 lg:w-1/2 w-full text-start flex dark:text-gray-50 lg:mt-0 lg:ml-0 mt-8 ml-8 flex-col"
@@ -66,7 +66,7 @@
       </div>
 
       <div
-        class="w-full my-12 flex flex-col h-5/6 bg-gray-100 dark:shadow-[0px_0px_10px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] lg:px-10 rounded-xl"
+        class="w-full my-12 flex flex-col h-5/6 bg-gray-100 dark:shadow-[0px_0px_3px_0px_#f7fafc] dark:bg-slate-800 shadow-[0px_0px_3px_0px_#1a202c] lg:px-10 rounded-xl"
       >
         <div class="h-full flex flex-col justify-around p-10">
           <h1
@@ -137,7 +137,7 @@
     </div>
     <div
       v-if="!users[0]?.current_plan"
-      class="w-full h-full p-4 bg-gray-100 z-50 mb-12 lg:relative rounded-xl dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden lg:p-14"
+      class="w-full h-full p-4 bg-gray-100 z-50 mb-12 lg:relative rounded-xl dark:bg-slate-800 shadow-[0px_0px_3px_0px_#1a202c] dark:shadow-[0px_0px_3px_0px_#f7fafc] overflow-hidden lg:p-14"
     >
       <div class="flex">
         <div
@@ -163,7 +163,7 @@
     </div>
     <div
       v-if="users[0]?.current_plan"
-      class="lg:relative w-full h-full mb-12 bg-gray-100 lg:z-40 rounded-xl flex lg:justify-center lg:items-center dark:bg-slate-800 shadow-[0px_0px_10px_0px_#1a202c] dark:shadow-[0px_0px_10px_0px_#f7fafc] overflow-hidden group"
+      class="lg:relative w-full h-full mb-12 bg-gray-100 lg:z-40 rounded-xl flex lg:justify-center lg:items-center dark:bg-slate-800 shadow-[0px_0px_3px_0px_#1a202c] dark:shadow-[0px_0px_3px_0px_#f7fafc] overflow-hidden group"
     >
       <NuxtLink
         :to="`/photolio/${users[0]?.pseudo}`"

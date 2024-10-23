@@ -74,9 +74,9 @@ const fetchProfilPicture = async () => {
 
 onMounted(async () => {
   await getUserId();  
-  console.log("User ID récupéré:", userId.value);
   if (userId.value) {
     await fetchProfilPicture();
+    console.log(images.value);
   }
 });
 
