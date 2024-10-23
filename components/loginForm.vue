@@ -9,30 +9,30 @@
         <div
           class="w-96 h-96 text-center flex flex-col text-gray-100 items-center rounded-md"
         >
-        <h1 class="text-2xl brico-800 text-center lg:text-4xl my-4">
+        <h1 class="text-2xl brico-800 text-center lg:text-4xl my-4 text-gray-950 dark:text-gray-50">
             👋 Welcome
             <span class="">Back</span>
           </h1>
           <button
             @click="signInGoogle"
-            class="px-16 py-2 mt-6 mb-12 rounded-md items-center justify-between bg-slate-800 flex"
+            class="px-20 py-2 mt-6 mb-12 rounded-md items-center justify-between bg-slate-800 flex"
           >
-            <Icon name="flat-color-icons:google" size="26" />
+            <Icon name="flat-color-icons:google"  size="26" />
             <h1 class="text-gray-100 text-sm">Google OAuth</h1>
           </button>
           <input
             type="email"
             v-model="email"
-            class="brico-200 px-4 py-2 p-4 w-3/4 mb-4 rounded-md text-start outline-none"
+            class="brico-200 px-4 py-2 p-4 w-3/4 mb-4 border border-gray-300/5 rounded-md text-start outline-none text-gray-950 dark:text-gray-50"
             placeholder="david.joe@gmail.com"
           />
           <input
             type="password"
             v-model="password"
-            class="brico-200 px-4 py-2 p-4 w-3/4 mb-4 rounded-md text-start outline-none"
-            placeholder="yourpassword"
+            class="brico-200 px-4 py-2 p-4 w-3/4 mb-4 border border-gray-300/5 rounded-md text-start outline-none text-gray-950 dark:text-gray-50"
+            placeholder="your password"
           />
-          <nuxt-link to="/register" class="underline-offset-2"
+          <nuxt-link to="/register" class="underline-offset-2 hover:underline"
             >Don't have an account ?</nuxt-link
           >
 

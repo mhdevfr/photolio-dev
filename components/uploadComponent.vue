@@ -75,7 +75,7 @@ const uploadPicture = async (evt) => {
    
     <div v-if="uploading" class="rounded-xl h-96 w-full lg:p-0 p-8 flex items-center justify-center bg-gray-50 dark:bg-slate-900">
       <button type="button" class="bg-indigo-500 flex py-2 px-2 rounded-lg" disabled>
-        <Icon name="heroicons-solid:upload" class="animate-bounce" size="24" />
+        <Icon name="heroicons-solid:upload" class="animate-bounce bg-transparent" size="24" />
         Uploading ...
       </button>
     </div>

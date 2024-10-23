@@ -3,7 +3,7 @@
     <button
       @click="isOpen = !isOpen"
       size="sm"
-      class="text-gray-200 dark:bg-slate-800 outline-none px-4 py-2 flex justify-between items-center rounded-md"
+      class="text-gray-200 dark:bg-gray-700 outline-none px-4 py-3 flex justify-between items-center rounded-md"
     >
       <div class="flex justify-around items-center">
         <Icon name="heroicons-outline:search" class="mr-2" size="24" />
